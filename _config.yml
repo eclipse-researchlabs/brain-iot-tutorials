@@ -1,0 +1,25 @@
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+
+theme: minima
+
+syntax_highlighter_opts:
+  disable: true
+
+collections:
+  tutorial:
+    output: true
+
+title: Brain IoT
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'README.md'
+  - 'run.sh'
+  - '.gitignore'
+  - '.gitmodules'
+  - 'run.sh'
+  - '/vendor'
