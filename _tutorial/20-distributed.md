@@ -181,7 +181,7 @@ Labels are used to control deployment. You may remember that the UI `system.part
 
 Click on the `Labels` tab so see whether the `UI` label is already set.
 
-Then click back to the `Fabric` tab, and click the node where you want the UI to be deployed. For example, the `infrastructure`node `fabric-n9`. 
+Then click back to the `Fabric` tab, and click the node where you want the UI to be deployed. For example, the `infrastructure` node `fabric-n9`. 
 
 Then enter "UI" for the name and "true" for the value, and click the `+` symbol:
 
@@ -223,7 +223,7 @@ Now click on the `Hosts` tab, you should see all the nodes in the BRAIN-IoT Fabr
 We didn't visit this page in the `quickstart` tutorial because there was only a single host.
 {:.note}
 
-Now click the `Behaviours` tab and you'll see the Security Light Behaviours are already there. This is because the `system document` configured the BMS with these indexes.
+Now click the `Behaviours` tab and you'll see the Security Light Behaviours are already there. This is because the `system document` configured the BMS with the Security Light Example index.
 
 We will now install the Security Light Behaviours, each on a different node.
 
@@ -244,14 +244,14 @@ If you now click on the `Hosts` tab, you should see that 3 hosts have 1 behaviou
 
 You can now run throught the Security Light Example (as we did in the `quickstart` tutorial), except now the `sensor` and `light` are on different hosts.
 
-I installed the `sensor` to `fabric-n1` and the `light` to `fabric-n4`.
+The `sensor` was installed to `fabric-n1` and the `light` to `fabric-n4`.
 
 So the URL for the `sensor` is <http://10.8.0.22:9100/sensor-ui/index.html>{:target="_blank"}, and the URL for the `light` is  <http://10.8.0.66:9100/light-ui/index.html>{:target="_blank"}
 
 Note that these URLs are _not_ prefixed by /example as they were in the `quickstart` tutorial and they use port 9100.
 {:.note}
 
-The example should work just as it did in the `quickstart` tutorial, except now the events are being delivered to remote nodes.
+The example should work just as it did in the `quickstart` tutorial, except now the events are being delivered to remote nodes!
 
 ### Discover HTTP port
 
