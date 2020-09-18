@@ -5,9 +5,13 @@ variables:
   LC_ALL: C.UTF-8
   GIT_SUBMODULE_STRATEGY: recursive
 
+cache:
+  paths:
+    - vendor/
+
 before_script:
   - gem install bundler
-  - bundle install
+  - bundle install --path vendor
 
 test:
   stage: test
