@@ -8,9 +8,9 @@ summary: Run Smart Behaviour in single container.
 
 ## Summary 
 
-In this tutorial we'll first run the BRAIN-IoT core services in a single container, and then use the BRAIN-IoT UI to install and run a Security Light Smart Behavior.
+In this tutorial we'll first run the BRAIN-IoT core services in a single container, and then use the BRAIN-IoT UI to install and run the Security Light Example, which contains 3 Smart Behaviours.
 
-BRAIN-IoT uses a distributed archtecture, but it's much faster to deploy it in a single container first. Other tutorials cover deploying a distributed BRAIN-IoT system.
+BRAIN-IoT uses a distributed archtecture, but it's much faster to deploy it in a single container first. The [Distributed Deployment](20-distributed.html) tutorial covers deploying a distributed BRAIN-IoT system.
 {:.note}
 
 ## Run Core Services
@@ -19,7 +19,7 @@ We start by first downloading and then running the core BRAIN-IoT services in a 
 
 ### Download
 
-The `admin-user-interface` git repository contains a useful `app-test` that runs a whole BRAIN-IoT system in a single container.
+The `admin-user-interface` git repository contains a useful `app.test` that runs a whole BRAIN-IoT system in a single container.
 
 Clone the [admin-user-interface](https://git.repository-pert.ismb.it/BRAIN-IoT/admin-user-interface){:target="_blank"} from GitLab and change directory into `admin-user-interface`.
 
@@ -36,16 +36,25 @@ Build  with the following command:
 
 ### Run
 
-`app-test/app.bndrun` defines an test containing the BRAIN-IoT core services and UI.
+`app.test/app.bndrun` defines an application containing the BRAIN-IoT core services and UI.
+
+<p><a class="btn btn-primary" data-toggle="collapse" href="#bndrun" aria-expanded="false" aria-controls="app.bndrun">app.bndrun</a></p>
+<div class="collapse" id="bndrun">
+  <div class="card card-block">
+{% highlight properties %}
+{% include admin-user-interface/app.test/app.bndrun %}
+{% endhighlight %}
+</div>
+</div>
 
 It can be started with the `bnd run` command:
 
-    ~/admin-user-interface $ bnd run app-test/app.bndrun
+    ~/admin-user-interface $ bnd run app.test/app.bndrun
     [INFO] Started Jetty 9.4.15.v20190215 at port(s) HTTP:8081 on context path / [minThreads=8,maxThreads=200,acceptors=1,selectors=4]
 {: .shell }
 
 The console will contain more output than shown above.
-When you want to terminate the test press **Ctrl+C**.
+When you want to terminate the application press **Ctrl+C**.
 {:.note}
 
 ## Explore BRAIN-IoT UI
@@ -62,7 +71,7 @@ Click on the `Behaviours` tab and you'll see that no behaviours are found.
 
 This is because the Behaviour Management Service (BMS) has not been configured with any marketplace artifacts. So we'll configure it with the marketplace for the Security Light Example, which is deployed in Nexus.
 
-Click on the `Configuration` tab and then `Behaviour Management Service` then copy the [security light marketplace](https://nexus.repository-pert.ismb.it/repository/marketplaces/com.paremus.brain.iot.marketplace/security-light-marketplace/0.0.1-SNAPSHOT/index.xml) URL into the Indexes field and save the configuration:
+Click on the `Configuration` tab and then `Behaviour Management Service` then copy the [security light marketplace](https://nexus.repository-pert.ismb.it/repository/marketplaces/com.paremus.brain.iot.marketplace/security-light-marketplace/0.0.1-SNAPSHOT/index.xml) URL into the `Indexes` field and save the configuration:
 
 ![UI ConfigBMS](img/ui-config-bms.png){: height="400px"}
 
@@ -94,9 +103,9 @@ When the sensor is activated it sends an event to the controller. The controller
 
 We have currently only installed the `sensor`.
 
-We will show that when the sensor is activated, the BMS will detect the unhandled event for the `controller` and automatically install the appropriate behaviour from its marketplace.
+We will show that when the sensor is activated, the BMS will detect the unhandled event for the `controller` and automatically install the appropriate behaviour from the marketplace.
 
-Similarly, when the `controller` sends an event to the `light`, the BMS will automatically install the `light` behaviour from its marketplace.
+Similarly, when the `controller` sends an event to the `light`, the BMS will automatically install the `light` behaviour from the marketplace.
 
 ### Trigger Example Sensor
 
@@ -129,5 +138,5 @@ Now  switch back to the main BRAIN-IoT UI and click the `Events` tab. You should
 ## End
 That completes this tutorial.
 
-To terminate the test press **Ctrl+C** in the terminal window.
+To terminate the application press **Ctrl+C** in the terminal window.
 

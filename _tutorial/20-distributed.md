@@ -12,7 +12,9 @@ In this tutorial we'll deploy the BRAIN-IoT core services in multiple containers
 
 The Fabric manages multiple remote containers  and can deploy OSGi artifacts to them.
 
-This tutorial assumes a Fabric is already running and we know its admin URL. Other tutorials cover creating and starting a Fabric.
+This tutorial assumes a Fabric is already running and we know its admin URL. 
+The [Create Fabric in Cloud](30-fabric-cloud.html) and  [Create Fabric on-premise](35-fabric-onpremise.html) tutorials cover creating and starting a Fabric.
+{:.note}
 
 ## Setup
 
@@ -20,14 +22,14 @@ An HTTP server is required to serve the BRAIN-IoT artefacts to be deployed to th
 
 ### brain-iot-repos
 
-We first need to copy the BRAIN-IoT core repos to the HTTP server. These contain the Event Bus, Behaviour Management Service, BRAIN-IoT User Interface and their dependencies.
+We first need to copy the BRAIN-IoT core repositories to the HTTP server. These contain the Event Bus, Behaviour Management Service, BRAIN-IoT User Interface and their dependencies.
 
 You can either clone and build the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project from GitLab or download the latest [brain-iot-repos.zip](https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip) from Nexus.
 
 If you chose to build the `fabric-deployment` project, the zip is located in
 
 ```
-fabric-deployment/fabric-deploy-repos/brain-iot-repos/target/brain-iot-repos-0.0.1-SNAPSHOT.zip
+fabric-deploy-repos/brain-iot-repos/target/brain-iot-repos-0.0.1-SNAPSHOT.zip
 ```
 
 Unzip `brain-iot-repos.zip` in the root of the HTTP server (it unpacks to `brain-iot-repos`), for example:
@@ -152,7 +154,7 @@ Here's the full `brain-iot-system.xml` for the Security Light. It needs to be in
 
 You can either copy/paste it from here or clone the [fabric-systems](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-systems){:target="_blank"} project from GitLab (its path is `security-light-fabric/src/main/resources/brain-iot-system.xml`).
 
-To confirm that setup is correct, browse to http://10.8.0.98/brain-iot-system.xml, where you replace 10.8.0.98 with the ip-address of your HTTP server.
+To confirm that setup is correct, browse to <http://10.8.0.98/brain-iot-system.xml>{:target="_blank"}, replacing 10.8.0.98 with the ip-address of your HTTP server.
 
 ## Deploy on Fabric
 
@@ -162,9 +164,8 @@ Now we've completed the setup we can deploy the Security Light Example to the Fa
 
 Browse to the Admin URL for your Fabric, for example: <https://10.8.0.94:9106/>{:target="_blank"}
 
-<div class="alert alert-warning">
 Note: the Fabric doesn't have a security certificate, so you'll need to dismiss browser warnings about it being an unsecure site.
-</div>
+{:.warning}
 
 ![Fabric Login](img/fabric-login.png){: height="400px"}
 
@@ -186,7 +187,7 @@ Then enter "UI" for the name and "true" for the value, and click the `+` symbol:
 
 ![Fabric Label](img/fabric-label.png){: height="400px"}
 
-Now return to the main view by clicking the fabric name in the bread crumbs at the top left (its ":: brain-iot ::" in this example).
+Now return to the main view by clicking the fabric name in the bread crumbs at the top left (its `:: brain-iot ::` in this example).
 
 ### Deploy System
 
@@ -202,9 +203,9 @@ Now click the system name and you'll see the deployment page:
 
 ![Fabric Import Valid](img/fabric-import-valid.png){: height="400px"}
 
-<div class="alert alert-warning">
-If the state is not "valid/managed" it means there was a problem resolving the bundles. See the trouble shooting page for how to diagnose this issue.
-</div>
+If the state is not `valid/managed` it means there was a problem resolving the bundles. See the [trouble shooting](35-fabric-onpremise.html#trouble-shooting) page for how to diagnose this issue.
+{:.warning}
+
 Click the `deploy` control (it looks like a play button). After a minute (or two) you should see the resolution of the deployment, showing the UI has been deployed to `fabric-n9` and the  BRAIN-IoT Core has been deployed to all other nodes:
 
 ![Fabric Deploy](img/fabric-deploy.png){: height="400px"}

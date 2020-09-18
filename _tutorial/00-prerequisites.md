@@ -47,9 +47,9 @@ Now test it works:
 
 
 ## Project Setup for private repositories
-<div class="alert alert-warning">
+
 The BRAIN-IoT git and nexus repositories are currently private, so you need credentials to access them.
-</div>
+{:.warning}
 
 Ensure the following BRAIN-IoT nexus servers are configured in your `~/.m2/settings.xml`:
 

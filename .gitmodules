@@ -1,3 +1,6 @@
 [submodule "_includes/fabric-systems"]
 	path = _includes/fabric-systems
 	url = ../fabric-systems.git
+[submodule "_includes/admin-user-interface"]
+	path = _includes/admin-user-interface
+	url = ../admin-user-interface.git

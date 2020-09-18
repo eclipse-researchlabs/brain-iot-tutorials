@@ -12,6 +12,10 @@ This tutorial will show how to create a Fabric using existing on-premise resourc
 
 
 
+## Trouble Shooting
+
+
+
 ## End
 
 That completes this tutorial.
