@@ -12,7 +12,7 @@ collections:
   tutorial:
     output: true
 
-title: Brain IoT
+title: BRAIN-IoT
 
 exclude:
   - 'Gemfile'
