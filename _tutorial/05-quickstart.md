@@ -1,7 +1,7 @@
 ---
 title: Quick Start 
 layout: toc-guide-page
-lprev: 00-prerequsites.html
+lprev: 00-prerequisites.html
 lnext: 10-developer.html
 summary: Run Smart Behaviour in single container.
 ---
@@ -15,7 +15,7 @@ BRAIN-IoT uses a distributed archtecture, but it's much faster to deploy it in a
 
 ## Run Core Services
 
-We start by first downloading and then running the core BRAIN-IoT services in a single container . This will also confirm that your local environment meets the required [prerequisites](015-Prerequisite.html#required-tools).
+We start by first downloading and then running the core BRAIN-IoT services in a single container . This will also confirm that your local environment meets the required [prerequisites](00-prerequisites.html#required-tools).
 
 ### Download
 
