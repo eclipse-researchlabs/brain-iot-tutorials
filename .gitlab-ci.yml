@@ -3,6 +3,7 @@ image: ruby:latest
 variables:
   JEKYLL_ENV: production
   LC_ALL: C.UTF-8
+  GIT_SUBMODULE_STRATEGY: recursive
 
 before_script:
   - gem install bundler
