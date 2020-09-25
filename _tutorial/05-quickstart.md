@@ -85,7 +85,7 @@ Click on the `Example Smart Security Sensor` and  then click in the `Install hos
 
 ![UI Install Light](img/ui-install-light.png){: height="400px"}
 
-Click on the `Events` tab and you should see two install events:
+Click on the `Events` tab and you should see two events for installation:
 
 ![UI Install Events](img/ui-events-install.png){: height="400px"}
 

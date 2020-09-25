@@ -24,7 +24,7 @@ An HTTP server is required to serve the BRAIN-IoT artefacts to be deployed to th
 
 We first need to copy the BRAIN-IoT core repositories to the HTTP server. These contain the Event Bus, Behaviour Management Service, BRAIN-IoT User Interface and their dependencies.
 
-You can either clone and build the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project from GitLab or download the latest [brain-iot-repos.zip](https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip) from Nexus.
+You can either clone and build the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project from GitLab or download the latest [brain-iot-repos.zip](https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip) from Nexus to in the root of the HTTP server.
 
 If you chose to build the `fabric-deployment` project, the zip is located in
 
@@ -100,7 +100,7 @@ and here is the config to set the security light marketplace indexes on the Beha
     </config>
 ```
 
-Note this is the _only_ part of the `system document` that is specific to the security light. If we omit this setting, the `system document` would be generic and we could configure the marketplace indexes in the UI.
+Note this is the _only_ part of the `system document` that is specific to the security light. If we omit this setting, the `system document` would be generic and we could configure the marketplace indexes for the Behaviour Management Service (BMS) in the BRAIN-IoT UI as shown in The [Quick Start](05-quickstart.html) tutorial.
 {:.note}
 
 #### system.part.element
@@ -136,7 +136,7 @@ A replication handler has no equivalent in `bndrun`. It is used to replicate a `
 
 #### brain-iot-system.xml 
 
-Here's the full `brain-iot-system.xml` for the Security Light. It needs to be installed at the root of the HTTP server (so that the `repopath` resolves to the `brain-iot-repos` we've just unpacked).
+Here's the full `system document` `brain-iot-system.xml` for the Security Light system. It needs to be installed at the root of the HTTP server (so that the `repopath` resolves to the `brain-iot-repos` folder we've just unpacked).
 
 <p>
   <a class="btn btn-primary" data-toggle="collapse" href="#system" aria-expanded="false" aria-controls="system">
