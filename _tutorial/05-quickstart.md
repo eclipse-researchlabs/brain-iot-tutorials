@@ -61,7 +61,7 @@ When you want to terminate the application press **Ctrl+C**.
 
 Browse to  <http://localhost:8081>{:target="_blank"}, where you should see the BRAIN-IoT UI. Login with username `admin` and password `admin`:
 
-![UI Dashboard](img/ui-dashboard.png){: height="400px"}
+![UI Dashboard](img/ui-dashboard.png){: height="700px"}
 
 ### Configure marketplace
 
@@ -73,25 +73,25 @@ This is because the Behaviour Management Service (BMS) has not been configured w
 
 Click on the `Configuration` tab and then `Behaviour Management Service` then copy the [security light marketplace](https://nexus.repository-pert.ismb.it/repository/marketplaces/com.paremus.brain.iot.marketplace/security-light-marketplace/0.0.1-SNAPSHOT/index.xml) URL into the `Indexes` field and save the configuration:
 
-![UI ConfigBMS](img/ui-config-bms.png){: height="400px"}
+![UI ConfigBMS](img/ui-config-bms.png){: height="700px"}
 
 Click on the `Behaviours` tab again and you'll now see the Security Light Example behaviours:.
 
-![UI Behaviours](img/ui-behaviours.png){: height="400px"}
+![UI Behaviours](img/ui-behaviours.png){: height="700px"}
 
 ### Install Smart Behaviour
 
 Click on the `Example Smart Security Sensor` and  then click in the `Install host` field. Select the only host and click `INSTALL`:
 
-![UI Install Light](img/ui-install-light.png){: height="400px"}
+![UI Install Sensor](img/ui-install-sensor.png){: height="700px"}
 
 Click on the `Events` tab and you should see two events for installation:
 
-![UI Install Events](img/ui-events-install.png){: height="400px"}
+![UI Install Events](img/ui-events-install.png){: height="700px"}
 
 Now click back to the `Behaviours` tab and you'll see the Example Security Sensor is installed:
 
-![UI Behaviours Sensor Installed](img/ui-behaviours-sensor.png){: height="400px"}
+![UI Behaviours Sensor Installed](img/ui-behaviours-sensor.png){: height="700px"}
 
 ## Security Light Example
 
@@ -113,19 +113,19 @@ So let's get started!
 
 Browse to  <http://localhost:8081/example/sensor-ui/index.html>{:target="_blank"}, where you should see the Example Sensor webpage:
 
-![Example Sensor UI](img/eg-sensor-ui.png){: height="400px"}
+![Example Sensor UI](img/eg-sensor-ui.png){: height="700px"}
 
 Click `Trigger the sensor`. 
 
 Switch back to the main BRAIN-IoT UI and click the `Behaviours` tab. You should see that all behaviours are now installed (you may need to refresh page):
 
-![UI Behaviours All Installed](img/ui-behaviours-all.png){: height="400px"}
+![UI Behaviours All Installed](img/ui-behaviours-all.png){: height="700px"}
 
 ### Observe Example Light bulb
 
 Browse to  <http://localhost:8081/example/light-ui/index.html>{:target="_blank"}, where you should see the Example Light Bulb webpage:
 
-![Example Light  UI](img/eg-light-ui.png){: height="400px"}
+![Example Light  UI](img/eg-light-ui.png){: height="700px"}
 
 If you missed it being lit up, then just click `Trigger the sensor` again and then switch back to the `light` webpage.
 
@@ -133,7 +133,7 @@ If you missed it being lit up, then just click `Trigger the sensor` again and th
 
 Now  switch back to the main BRAIN-IoT UI and click the `Events` tab. You should see lots of events, specifically `SensorReadingDTO` which is sent from the `sensor` and `LightCommand` which is sent from the `controller`:
 
-![Example Events](img/ui-events-example.png){: height="400px"}
+![Example Events](img/ui-events-example.png){: height="700px"}
 
 ## End
 That completes this tutorial.

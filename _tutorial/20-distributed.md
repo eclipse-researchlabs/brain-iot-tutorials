@@ -167,11 +167,11 @@ Browse to the Admin URL for your Fabric, for example: <https://10.8.0.94:9106/>{
 Note: the Fabric doesn't have a security certificate, so you'll need to dismiss browser warnings about it being an unsecure site.
 {:.warning}
 
-![Fabric Login](img/fabric-login.png){: height="400px"}
+![Fabric Login](img/fabric-login.png){: height="700px"}
 
 Login with username `AdminUser` and password `AdminUser`, and then click the checkbox to show `Fibre Names`:
 
-![Fabric Fibres](img/fabric-fibres.png){: height="400px"}
+![Fabric Fibres](img/fabric-fibres.png){: height="700px"}
 
 You should see one `fibre` icon for each node in your Fabric. In this case the node `fabric-n9` is the `infrastructure` node (indicated by the cross in its icon). The `infrastructure` node is responsible for downloading artifacts and deploying them to other nodes.
 
@@ -185,7 +185,7 @@ Then click back to the `Fabric` tab, and click the node where you want the UI to
 
 Then enter "UI" for the name and "true" for the value, and click the `+` symbol:
 
-![Fabric Label](img/fabric-label.png){: height="400px"}
+![Fabric Label](img/fabric-label.png){: height="700px"}
 
 Now return to the main view by clicking the fabric name in the bread crumbs at the top left (its `:: brain-iot ::` in this example).
 
@@ -193,22 +193,22 @@ Now return to the main view by clicking the fabric name in the bread crumbs at t
 
 Click the `Systems` tab, and then paste the URL of the Security Light `system document` we prepared earlier:
 
-![Fabric Import](img/fabric-import.png){: height="400px"}
+![Fabric Import](img/fabric-import.png){: height="700px"}
 
 Then click the `Import` button, after a few seconds the system name should appear:
 
-![Fabric Import 2](img/fabric-import2.png){: height="400px"}
+![Fabric Import 2](img/fabric-import2.png){: height="700px"}
 
 Now click the system name and you'll see the deployment page:
 
-![Fabric Import Valid](img/fabric-import-valid.png){: height="400px"}
+![Fabric Import Valid](img/fabric-import-valid.png){: height="700px"}
 
 If the state is not `valid/managed` it means there was a problem resolving the bundles. See the [trouble shooting](35-fabric-onpremise.html#trouble-shooting) page for how to diagnose this issue.
 {:.warning}
 
 Click the `deploy` control (it looks like a play button). After a minute (or two) you should see the resolution of the deployment, showing the UI has been deployed to `fabric-n9` and the  BRAIN-IoT Core has been deployed to all other nodes:
 
-![Fabric Deploy](img/fabric-deploy.png){: height="400px"}
+![Fabric Deploy](img/fabric-deploy.png){: height="750px"}
 
 ## BRAIN-IoT UI
 
@@ -218,7 +218,7 @@ Login with username `admin` and password `admin` as in the `quickstart` tutorial
 
 Now click on the `Hosts` tab, you should see all the nodes in the BRAIN-IoT Fabric:
 
-![UI Hosts](img/ui-hosts.png){: height="400px"}
+![UI Hosts](img/ui-hosts.png){: height="700px"}
 
 We didn't visit this page in the `quickstart` tutorial because there was only a single host.
 {:.note}
@@ -229,7 +229,7 @@ We will now install the Security Light Behaviours, each on a different node.
 
 Click on `Example Smart Security Sensor` and then click in the `Install host` field (as we did in the `quickstart` tutorial), but now you can choose to install the behaviour on any host:
 
-![UI Behaviours Install](img/ui-behaviours-install.png){: height="400px"}
+![UI Behaviours Install](img/ui-behaviours-install.png){: height="700px"}
 
 Choose any host and click `Install`, then repeat for the `Example Smart Light Bulb` and `Example Smart Security Light Behaviour` choosing a different host each time.
 
@@ -238,7 +238,7 @@ You may need to refresh the page or switch tabs to see the `Installed` icon chan
 
 If you now click on the `Hosts` tab, you should see that 3 hosts have 1 behaviour installed:
 
-![UI Hosts  2](img/ui-hosts-2.png){: height="400px"}
+![UI Hosts  2](img/ui-hosts-2.png){: height="700px"}
 
 ## Security Light Example
 
@@ -259,7 +259,7 @@ To see which port is used by the HTTP service for the example UIs, you need to l
 
 The IP address and port are listed under `Serving Endpoint`:
 
-![Fabric HTTP Runtime](img/fabric-http-runtime.png){: height="400px"}
+![Fabric HTTP Runtime](img/fabric-http-runtime.png){: height="700px"}
 
 ## Undeploy
 
