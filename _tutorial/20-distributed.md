@@ -24,7 +24,12 @@ An HTTP server is required to serve the BRAIN-IoT artefacts to be deployed to th
 
 We first need to copy the BRAIN-IoT core repositories to the HTTP server. These contain the Event Bus, Behaviour Management Service, BRAIN-IoT User Interface and their dependencies.
 
-You can either clone and build the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project from GitLab or download the latest [brain-iot-repos.zip](https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip) from Nexus to in the root of the HTTP server.
+You can either clone and build the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project from GitLab or download the latest [brain-iot-repos.zip](https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip) from Nexus:
+
+    $ curl -u dbaum -O https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip
+    Enter host password for user 'dbaum':
+{:.shell}
+
 
 If you chose to build the `fabric-deployment` project, the zip is located in
 
@@ -34,10 +39,7 @@ fabric-deploy-repos/brain-iot-repos/target/brain-iot-repos-0.0.1-SNAPSHOT.zip
 
 Unzip `brain-iot-repos.zip` in the root of the HTTP server (it unpacks to `brain-iot-repos`), for example:
 
-    webserver $ cd /var/www/html
-    webserver $ unzip /tmp/brain-iot-repos-0.0.1-SNAPSHOT.zip
-    webserver $ ls brain-iot-repos
-    core ui
+    webserver $ sudo unzip -d /usr/share/nginx/html /tmp/brain-iot-repos-0.0.1-SNAPSHOT.zip
 {:.shell}
 
 ### System Document
