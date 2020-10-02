@@ -13,7 +13,7 @@ Before you start any of the tutorials you must prepare your environment so that 
 We need to run the following tools on your computer - without them you won't get very far at all.
 
 * [Java][java8]{:target="_blank"}, probably already got it? If not, this is a good time to get started! BRAIN-IoT targets Java 8 as a minimum version.
-* [Maven][Maven]{:target="_blank"}, a popular build tool for Java applications with an enormous repository behind it. Make sure that you're on at least 3.3.9
+* [Maven][Maven]{:target="_blank"}, a popular build tool for Java applications with an enormous repository behind it. Ensure that you're on at least version **3.5.4**.
 * [Git][git]{:target="_blank"}, IDEs usually include git support, but when it comes to git nothing really beats the good old command line.
 * [Bnd][bnd]{:target="_blank"}, is the Swiss army knife of OSGi, it runs inside Maven,  Eclipse & other tools, but we also need to use it on the command line.
 

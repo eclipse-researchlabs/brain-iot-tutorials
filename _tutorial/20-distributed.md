@@ -26,18 +26,21 @@ We first need to copy the BRAIN-IoT core repositories to the HTTP server. These 
 
 You can either clone and build the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project from GitLab or download the latest [brain-iot-repos.zip](https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip) from Nexus:
 
-    $ curl -u dbaum -O https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip
-    Enter host password for user 'dbaum':
+    $ curl -u someuser -O https://nexus.repository-pert.ismb.it/repository/maven-snapshots/com/paremus/brain/iot/brain-iot-repos/0.0.1-SNAPSHOT/brain-iot-repos-0.0.1-20200720.125205-11.zip
+    Enter host password for user 'someuser':
 {:.shell}
 
+If you choose to build the `fabric-deployment` project:
 
-If you chose to build the `fabric-deployment` project, the zip is located in
+    $ git clone git@git.repository-pert.ismb.it:BRAIN-IoT/fabric-deployment.git
+    $ cd fabric-deployment/fabric-deploy-repos
+    $ mvn package
+{:.shell}
 
-```
-fabric-deploy-repos/brain-iot-repos/target/brain-iot-repos-0.0.1-SNAPSHOT.zip
-```
+Created zip is `brain-iot-repos/target/brain-iot-repos-0.0.1-SNAPSHOT.zip`
+{:.note}
 
-Unzip `brain-iot-repos.zip` in the root of the HTTP server (it unpacks to `brain-iot-repos`), for example:
+Unzip `brain-iot-repos.zip` in the root of the HTTP server (it unpacks into directory `brain-iot-repos`), for example:
 
     webserver $ sudo unzip -d /usr/share/nginx/html /tmp/brain-iot-repos-0.0.1-SNAPSHOT.zip
 {:.shell}
@@ -117,7 +120,11 @@ Note this is the _only_ part of the `system document` that is specific to the se
 
 #### replication.handler
 
-A replication handler has no equivalent in `bndrun`. It is used to replicate a `system.part` across multiple remote containers:
+A replication handler has no equivalent in `bndrun`. It is used to replicate a `system.part` across multiple remote containers/nodes.
+
+If not specified, for example in the `UI`, then the `system.part` is only deployed to a single node.
+
+The BRAIN-IoT Core (EventBus etc) needs to be deployed to all nodes in the fabric, so it specifies this `replication.handler` :
 
 ```xml
     <!-- replicate Core system.part to all nodes -->
