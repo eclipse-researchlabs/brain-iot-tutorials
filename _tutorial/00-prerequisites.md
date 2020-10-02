@@ -66,6 +66,11 @@ Ensure the following BRAIN-IoT nexus servers are configured in your `~/.m2/setti
       <username>${env.NEXUS_USER}</username>
       <password>${env.NEXUS_PASSWORD}</password>
     </server>
+    <server>
+      <id>brain-iot-nexus-marketplace</id>
+      <username>${env.NEXUS_USER}</username>
+      <password>${env.NEXUS_PASSWORD}</password>
+    </server>
   </servers>
 </settings>
 ```

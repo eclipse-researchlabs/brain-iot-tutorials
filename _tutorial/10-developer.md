@@ -8,7 +8,7 @@ summary: Create and package a Smart Behaviour.
 
 ## Summary
 
-This tutorial will show how to create and package a simple BRAIN-IoT Smart Behaviour. 
+This tutorial will show how to create and package a simple BRAIN-IoT Smart Behaviour. It's This tutorial is Maven and command-line based.
 
 Here we will create a Security Light System which is composed of three smart behaviours: a `light`, a `sensor` and a `controller`. The sensor and light are ‘virtual’ and implemented as web pages.
 
@@ -58,12 +58,11 @@ First change into a new directory, since we are recreating the project, here we 
 ```
 Use the [bare-project Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-project-archetype){:target="_blank"} to create a microservice project:
 ```bash
-~ $ mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.1:generate \
+~ $ mvn archetype:generate \
      -DarchetypeGroupId=org.osgi.enroute.archetype \
      -DarchetypeArtifactId=project-bare \
      -DarchetypeVersion=7.0.0
 ```
-We declare to use the version 3.0.1 of the maven-archetype-plugin because if the version is not fixed, Maven chooses the version and it does not work with e.g. version 2.4.
 
 Filling the project details with appropriate values:
 ```bash
@@ -78,18 +77,18 @@ version: 0.0.1-SNAPSHOT
 package: com.paremus.brain.iot.example
  Y: :
 ```
-If you’re using an IDE then this would be a good time to import the generated maven projects.
-{:.warning}
+If you’re using an IDE then this would be a good time to import the generated maven project and then import the submodules when they're created.
+{:.note}
 
 This is a maven parent project, which will contain multiple modules for the Security Light example.
 
-Open POM and change the default `<bnd.version>` property to 
+Open POM and change the default `<bnd.version>` property to avoid build failure:
 ```xml
   <bnd.version>4.2.0</bnd.version>
 ```
 Before implementing the module, append the following BRAIN-IoT runtime dependencies in the `<dependencyManagement>` section in parent POM, as they are the dependencies of EventBus.
 
-Here assume that you have run through the [Quick Start](05-quickstart.html) tutorial and the credentials setup for BRAIN-IoT private Nexus repositories has been done. 
+Here assume that you have run through the [Prerequisites](00-prerequisites.html) tutorial and the credentials setup for BRAIN-IoT private Nexus repositories has been done. 
 {:.warning}
 
 ```xml
