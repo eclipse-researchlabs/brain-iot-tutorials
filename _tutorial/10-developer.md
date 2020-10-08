@@ -115,6 +115,12 @@ Here assume that you have run through the [Prerequisites](00-prerequisites.html)
        <version>0.0.1-SNAPSHOT</version>
        <scope>runtime</scope>
   </dependency>
+   <dependency>
+       <groupId>org.apache.aries.spec</groupId>
+       <artifactId>org.apache.aries.javax.jax.rs-api</artifactId>
+       <version>1.0.1</version>
+       <scope>compile</scope>
+   </dependency>
 ```
 Append the following repositories in `<repositories>` section for downloading the BRAIN-IoT runtime dependencies:
 ```xml
@@ -143,7 +149,6 @@ Append the following repositories in `<repositories>` section for downloading th
 ```
 and append the following plugin repositories in `<pluginRepositories>` section for downloading the BRAIN-IoT `smart-behaviour-maven-plugin`:
 ```xml
-    <pluginRepositories>
         <pluginRepository>
             <id>brain-iot-releases</id>
             <name>BRAIN-IoT Releases</name>
@@ -166,7 +171,6 @@ and append the following plugin repositories in `<pluginRepositories>` section f
                 <enabled>true</enabled>
             </snapshots>
         </pluginRepository>
-    </pluginRepositories>
 ```
 ### Create Light API Module
 
@@ -327,25 +331,10 @@ package: com.paremus.brain.iot.example.light.impl
  Y: :
 ```
 #### Dependencies
-Replace original `<dependencies>` section with the following:
+Append the following dependencies in the `<dependencies>` section of POM:
 
 ```xml
     <dependencies>
-        <dependency>
-            <groupId>org.osgi.enroute</groupId>
-            <artifactId>osgi-api</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi.enroute</groupId>
-            <artifactId>enterprise-api</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi.enroute</groupId>
-            <artifactId>test-bundles</artifactId>
-            <type>pom</type>
-        </dependency>
         <dependency>
             <groupId>com.paremus.brain.iot</groupId>
             <artifactId>eventing.api</artifactId>
@@ -375,6 +364,19 @@ Replace original `<dependencies>` section with the following:
         </dependency>
      </dependencies>
 ```
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#lightImpl-pom" aria-expanded="false" aria-controls="lightImpl-pom">pom.xml</a>
+</p>
+
+<div class="collapse" id="lightImpl-pom">
+  <div class="card card-block">
+{% highlight properties %}
+{% include smart-behaviours/lightImpl-pom.xml %}
+{% endhighlight %}
+  </div>
+</div>
+
 #### Implement the `light` smart behaviour
 Remove original auto-generated java classes in src package:
 
