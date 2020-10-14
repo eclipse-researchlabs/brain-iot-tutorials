@@ -13,7 +13,7 @@ Although virtually all work in BRAIN IoT can be done through an IDE, the tutoria
 A basic familiarity with Java, Git and Maven is assumed.
 
 The git and nexus repositories used in these tutorials are private and can only be accessed by BRAIN-IoT members.
-When they are published the tutorials will be updated to reference the public respositores.
+When they are published the tutorials will be updated to reference the public respositories.
 {:.note}
 
 <br>
