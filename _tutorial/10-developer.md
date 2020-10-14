@@ -19,21 +19,20 @@ A Smart Behaviour is a functional unit deployable in an OSGi container, and it's
 ## Build and Run
 
 Download the [SmartBehaviourEventBus](https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git){:target="_blank"} Git repository, and change directory into `SmartBehaviourEventBus/eventing-example`.
-```bash
-~ $ git clone https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git
-~ $ cd SmartBehaviourEventBus/eventing-example
-```
+
+    ~ $ git clone https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git
+    ~ $ cd SmartBehaviourEventBus/eventing-example
+{:.shell}
 
 ### Building the example
 Build the Application with the following command:
-```bash
-~/SmartBehaviourEventBus/eventing-example $ mvn verify
-```
+
+    ~/SmartBehaviourEventBus/eventing-example $ mvn verify
+{:.shell}
 ### Running the example
 
-```bash
-~/SmartBehaviourEventBus/eventing-example $ java -jar single-framework-example/target/single-framework-example.jar
-```
+    ~/SmartBehaviourEventBus/eventing-example $ java -jar single-framework-example/target/single-framework-example.jar
+{:.shell}
 To test that the application is running, visit:
 
 Sensor UI: [http://localhost:8080/sensor-ui/index.html](http://localhost:8080/sensor-ui/index.html){:target="_blank"}
@@ -53,30 +52,29 @@ with each module having a POM that describes its dependencies.
 
 ### Project Setup
 First change into a new directory, since we are recreating the project, here we go to the `HOME` directory:
-```bash
-~/SmartBehaviourEventBus/eventing-example $ cd ~
-```
-Use the [bare-project Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-project-archetype){:target="_blank"} to create a microservice project:
-```bash
-~ $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=project-bare \
-     -DarchetypeVersion=7.0.0
-```
 
+    ~/SmartBehaviourEventBus/eventing-example $ cd ~
+{:.shell}
+Use the [bare-project Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-project-archetype){:target="_blank"} to create a microservice project:
+
+    ~ $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=project-bare \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 Filling the project details with appropriate values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': eventing-example
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: eventing-example
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example
- Y: :
-```
+
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': eventing-example
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: eventing-example
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example
+     Y: :
+{:.shell}
 If you’re using an IDE then this would be a good time to import the generated maven project and then import the submodules when they're created.
 {:.note}
 
@@ -175,26 +173,26 @@ and append the following plugin repositories in `<pluginRepositories>` section f
 ### Create Light API Module
 
 Change directory into the newly created `eventing-example` project directory, then create an API module `light.api` using the [api Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-api-archetype){:target="_blank"} as shown:
-```bash
-~ $ cd eventing-example
-~/eventing-example $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=api \
-     -DarchetypeVersion=7.0.0
-```
+
+    ~ $ cd eventing-example
+    ~/eventing-example $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=api \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': light.api
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example.light.api: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: light.api
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example.light.api
- Y: :
-```
+
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': light.api
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example.light.api: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: light.api
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example.light.api
+     Y: :
+{:.shell}
 This API module defines a sort of BRAIN-IoT Events via the use of [Data Transfer Objects (DTOs)](https://enroute.osgi.org/FAQ/420-dtos.html){:target="_blank"} transfered between `light` smart behaviour and others. Each event has to extend the common super-type `BrainIoTEvent` shown in the following `BrainIoTEvent.java` which contains information that must exist for all events.
 
 <p>
@@ -302,7 +300,7 @@ and create the following four files:
   </div>
 </div>
 
-You can copy all source java files from the `light.api` sub-project of downloaded [SmartBehaviourEventBus](https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git){:target="_blank"} Git repository to the src package.
+Alternatly, you can copy all source java files from the `light.api` sub-project of downloaded [SmartBehaviourEventBus](https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git){:target="_blank"} Git repository to the src package.
 {:.note}
 
 ### Create Light Smart Behaviour Implementation Module
@@ -311,25 +309,24 @@ A Smart Behavior is implemented as Declarative Service using the `@SmartBehaviou
 
 Now, in the `eventing-example` project directory, create the `light.impl` module using the [rest-component Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-rest-component-archetype){:target="_blank"}:
 
-```bash
-~/eventing-example $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=rest-component \
-     -DarchetypeVersion=7.0.0
-```
+    ~/eventing-example $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=rest-component \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': light.impl
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example.light.impl: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: light.impl
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example.light.impl
- Y: :
-```
+
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': light.impl
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example.light.impl: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: light.impl
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example.light.impl
+     Y: :
+{:.shell}
 #### Dependencies
 Append the following dependencies in the `<dependencies>` section of POM:
 
@@ -485,10 +482,10 @@ In addition, two important methods must be used:
 The web page of the light bulb will be implemented also in this `light.impl` module.
 
 Create the directory `~/eventing-example/light.impl/src/main/resources` and copy the downloaded `light.impl/src/main/resources/static` folder which is the implementation of the light bulb page to the same place of current `light.impl` module (i.e. `~/eventing-example/light.impl/src/main/resources/static`).
-```bash
-~/eventing-example $ ls light.impl/src/main/resources/static
-css  img  index.html  js  lib
-```
+
+    ~/eventing-example $ ls light.impl/src/main/resources/static
+    css  img  index.html  js  lib
+{:.shell}
 
 #### Visibility
 Implementations should NOT be shared; hence no package-info.java file.
@@ -552,9 +549,9 @@ Add the following `<build>` section in `light.impl` POM:
     </build>
 ```
 Create a `bndrun` file:
-```bash
-~/eventing-example $ touch light.impl/light.bndrun
-```
+
+    ~/eventing-example $ touch light.impl/light.bndrun
+{:.shell}
 Then add the following content in `light.bndrun`:
 ```bash
 -runrequires: \
@@ -575,30 +572,28 @@ Note that your runee may be different if you chose to use a higher version of Ja
 However, no `runbundles` is currently listed(i.e. the actual bundles needed at runtime to run the `light` smart behaviour). But the bndrun will be automatically resolved using the `bnd-resolver-maven-plugin` to generate the runtime dependencies. Now we use the `package` goal to check that the code compiles and can be successfully packaged into a bundle.
 
 Build the `eventing-example` project:
-```bash
-~/eventing-example $ mvn package
 
-[INFO] Scanning for projects...
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building light.impl 0.0.1-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ light.impl ---
-[INFO] Building jar: /home/rui/Documents/SmartBehaviourEventBus/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT.jar
-[INFO] 
-[INFO] --- bnd-resolver-maven-plugin:4.2.0:resolve (default) @ light.impl ---
-[INFO] 
-[INFO] --- smart-behaviour-maven-plugin:0.0.1-SNAPSHOT:smart-behaviour (default) @ light.impl ---
-[INFO] Gathering dependencies
-[INFO] Copying light.api-0.0.1-SNAPSHOT.jar to ~/eventing-example/light.impl/target/smart-behaviour/light.api-0.0.1-SNAPSHOT.jar
-[INFO] Copying light.impl-0.0.1-SNAPSHOT.jar to ~/eventing-example/light.impl/target/smart-behaviour/light.impl-0.0.1-SNAPSHOT.jar
-[INFO] Copying .....
-[INFO] Processing ~/eventing-example/light.impl/light.bndrun for dependencies
-[INFO] Building jar: ~/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-```
+    ~/eventing-example $ mvn package
+    [INFO] Scanning for projects...                                                                    
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Building light.impl 0.0.1-SNAPSHOT
+    [INFO] ------------------------------------------------------------------------
+    [INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ light.impl ---
+    [INFO] Building jar: /home/rui/Documents/SmartBehaviourEventBus/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT.jar
+    [INFO] 
+    [INFO] --- bnd-resolver-maven-plugin:4.2.0:resolve (default) @ light.impl ---
+    [INFO] 
+    [INFO] --- smart-behaviour-maven-plugin:0.0.1-SNAPSHOT:smart-behaviour (default) @ light.impl ---
+    [INFO] Gathering dependencies
+    [INFO] Copying light.api-0.0.1-SNAPSHOT.jar to ~/eventing-example/light.impl/target/smart-behaviour/light.api-0.0.1-SNAPSHOT.jar
+    [INFO] Copying light.impl-0.0.1-SNAPSHOT.jar to ~/eventing-example/light.impl/target/smart-behaviour/light.impl-0.0.1-SNAPSHOT.jar
+    [INFO] Copying .....
+    [INFO] Processing ~/eventing-example/light.impl/light.bndrun for dependencies
+    [INFO] Building jar: ~/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+{:.shell}
 If we had tests or other post-packaging checks then we could have used the `verify` goal instead.
 {:.note}
 If the package fails then check your code and try again. Once you can package it cleanly then continue to the next stage.
@@ -606,40 +601,38 @@ If the package fails then check your code and try again. Once you can package it
 
 You can see each module has been packaged as an OSGi bundle in their `target` directories. Check the output of the `light.impl` module:
 
-```bash
-~/eventing-example $ cd light.impl
-~/eventing-example/light.impl $ ls target
-classes                                                  maven-status
-generated-sources                                        smart-behaviour
-generated-test-sources                                   surefire-reports
-light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar  test-classes
-light.impl-0.0.1-SNAPSHOT.jar                            tmp
-maven-archiver
-```
+    ~/eventing-example $ cd light.impl
+    ~/eventing-example/light.impl $ ls target
+    classes                                                  maven-status
+    generated-sources                                        smart-behaviour
+    generated-test-sources                                   surefire-reports
+    light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar  test-classes
+    light.impl-0.0.1-SNAPSHOT.jar                            tmp
+    maven-archiver
+{:.shell}
 In the `light.impl/target` folder, there is the `light.impl-0.0.1-SNAPSHOT.jar` module output bundle, but also the `light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar` smart behaviour jar, and a `smart-behaviour` folder with all the gathered dependencies for the `light` smart behaviour and a an OSGi repository index file is generated from the dependencies. The `index.xml` can be used for resolving the smart behaviour at runtime. You can also use the `mvn install` to deploy the jars in maven local repository for creating a marketplace later.
 
 Check the content of the output bundle, run:
 
-```bash
-~/eventing-example/light.impl $ bnd print target/light.impl-0.0.1-SNAPSHOT.jar
-[MANIFEST light.impl-0.0.1-SNAPSHOT]
-......                                    
-Bundle-Description                       "The light.impl DS component - built using OSGi enRoute R7"
-Bundle-ManifestVersion                   2                                       
-Bundle-Name                              light.impl                              
-Bundle-SymbolicName                      com.paremus.brain.iot.example.light.impl
-Bundle-Version                           0.0.1.202009251653                      
-Created-By                               1.8.0_221 (Oracle Corporation)
-Import-Package: com.paremus.brain.iot.example.light.api;version="[1.0,2)"....
-Require-Capability:....
-Service-Component: OSGI-INF/com.paremus.brain.iot.example.light.impl.RestComponentImpl.xml
-Provide-Capability: osgi.service;objectClass:List<String>="com.paremus.brain.iot.example.light.impl.RestComponentImpl,
+    ~/eventing-example/light.impl $ bnd print target/light.impl-0.0.1-SNAPSHOT.jar
+    [MANIFEST light.impl-0.0.1-SNAPSHOT]
+    ......                                    
+    Bundle-Description                       "The light.impl DS component - built using OSGi enRoute R7"
+    Bundle-ManifestVersion                   2                                       
+    Bundle-Name                              light.impl                              
+    Bundle-SymbolicName                      com.paremus.brain.iot.example.light.impl
+    Bundle-Version                           0.0.1.202009251653                      
+    Created-By                               1.8.0_221 (Oracle Corporation)
+    Import-Package: com.paremus.brain.iot.example.light.api;version="[1.0,2)"....
+    Require-Capability:....
+    Service-Component: OSGI-INF/com.paremus.brain.iot.example.light.impl.RestComponentImpl.xml
+    Provide-Capability: osgi.service;objectClass:List<String>="com.paremus.brain.iot.example.light.impl.RestComponentImpl,
         eu.brain.iot.eventing.api.SmartBehaviour",
         eu.brain.iot.behaviour;consumed:List<String>="com.paremus.brain.iot.example.light.api.LightCommand,
         com.paremus.brain.iot.example.light.api.LightQuery";author=Paremus;name="Example Smart Light Bulb";
         description="Implements a Smart Light Bulb and UI to display it."
-Service-Component: OSGI-INF/com.paremus.brain.iot.example.light.impl.RestComponentImpl.xml
-```
+    Service-Component: OSGI-INF/com.paremus.brain.iot.example.light.impl.RestComponentImpl.xml
+{:.shell}
 As shown, the event types to be consumed by the bundle are listed in the `consumed` property.
 
 If you look again at the `light.bndrun` file you will now see a number of bundles required at runtime are now listed by `runbundles` instruction.
@@ -689,18 +682,17 @@ The `light.impl` module is also packaged as a smart behaviour jar using the `sma
 
 Check the content of the `light` smart behaviour jar:
 
-```bash
-~/eventing-example/light.impl $ bnd print target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    ~/eventing-example/light.impl $ bnd print target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
 
-[MANIFEST light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour]
-BRAIN-IoT-Deploy-Requirement     osgi.identity;filter:="(osgi.identity=com.paremus.brain.iot.example.light.impl)",
-                                 osgi.identity;filter:="(osgi.identity=org.apache.aries.jax.rs.jackson)"
-BRAIN-IoT-Smart-Behaviour-SymbolicName   com.paremus.brain.iot.example.light.impl
-BRAIN-IoT-Smart-Behaviour-Version        0.0.1.SNAPSHOT                          
-Build-Jdk                                1.8.0_221                                                                    
-Created-By                               Apache Maven 3.3.9                      
-Manifest-Version                         1.0
-```
+    [MANIFEST light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour]
+    BRAIN-IoT-Deploy-Requirement     osgi.identity;filter:="(osgi.identity=com.paremus.brain.iot.example.light.impl)",
+                                     osgi.identity;filter:="(osgi.identity=org.apache.aries.jax.rs.jackson)"
+    BRAIN-IoT-Smart-Behaviour-SymbolicName   com.paremus.brain.iot.example.light.impl
+    BRAIN-IoT-Smart-Behaviour-Version        0.0.1.SNAPSHOT                          
+    Build-Jdk                                1.8.0_221                                                                    
+    Created-By                               Apache Maven 3.3.9                      
+    Manifest-Version                         1.0
+{:.shell}
 Each smart behaviour will have some OSGi headers. The value of `BRAIN-IoT-Deploy-Requirement` header is drived from the `-runrequires` instruction in the bndrun file (e.g. `light.bndrun` here), and the bundles specified in this header will be resolved and installed together with their dependencies at runtime. If the `smart-behaviour-maven-plugin` is not configured with any `bndrun` file, then the default bundle must be deployed is the project output jar.
 
 ## Create the Sensor and Controller Smart Behaviours
@@ -709,26 +701,26 @@ Let's create sub-modules `sensor.api`, `sensor.impl` and `behaviour.impl` in `ev
 ### Create Sensor API Module
 
 Change directory into the parent `eventing-example` project directory, then create an API module `sensor.api` using the [api Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-api-archetype){:target="_blank"} as shown:
-```bash
-~ $ cd eventing-example
-~/eventing-example $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=api \
-     -DarchetypeVersion=7.0.0
-```
+
+    ~ $ cd eventing-example
+    ~/eventing-example $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=api \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': sensor.api
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example.sensor.api: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: sensor.api
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example.sensor.api
- Y: :
-```
+
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': sensor.api
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example.sensor.api: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: sensor.api
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example.sensor.api
+     Y: :
+{:.shell}
 This API module defines the Events via the use of [Data Transfer Objects (DTOs)](https://enroute.osgi.org/FAQ/420-dtos.html){:target="_blank"} transfered between `sensor` smart behaviour and others.
 
 #### Dependencies
@@ -771,25 +763,24 @@ and create the following file:
 ### Create Sensor Implementation Module
 Go to `eventing-example` project directory, create the `sensor.impl` module using the [rest-component Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-rest-component-archetype){:target="_blank"}:
 
-```bash
-~/eventing-example $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=rest-component \
-     -DarchetypeVersion=7.0.0
-```
+    ~/eventing-example $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=rest-component \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': sensor.impl
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example.sensor.impl: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: sensor.impl
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example.sensor.impl
- Y: :
-```
+
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': sensor.impl
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example.sensor.impl: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: sensor.impl
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example.sensor.impl
+     Y: :
+{:.shell}
 #### Dependencies
 Replace the auto-genearted POM in this module with the following, the content is similar with the `light.impl` POM with the build configuartion:
 <p>
@@ -838,36 +829,33 @@ In addition, place the following `sensor.bndrun` file in `~/eventing-example/sen
 
 #### Sensor REST Service Implementation
 Create the directory `~/eventing-example/sensor.impl/src/main/resources` and copy the downloaded `sensor.impl/src/main/resources/static` folder which is the implementation of the sensor web page to the same place of current `sensor.impl` module (i.e. `~/eventing-example/sensor.impl/src/main/resources/static`).
-```bash
-~/eventing-example $ ls light.impl/src/main/resources/static
-css  img  index.html  js  lib
-```
 
+    ~/eventing-example $ ls light.impl/src/main/resources/static
+    css  img  index.html  js  lib
+{:.shell}
 Now the sensor smart behaviour is ready to be built using `mvn package` command as shown before.
 
 ### Create Controller Implementation Module
 Go to `eventing-example` project directory, create the `behaviour.impl` module using the [ds-component Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-ds-component-archetype){:target="_blank"}:
 
-```bash
-~/eventing-example $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=ds-component \
-     -DarchetypeVersion=7.0.0
-```
+    ~/eventing-example $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=ds-component \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': behaviour.impl
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example.behaviour.impl: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: behaviour.impl
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example.behaviour.impl
- Y: :
-```
 
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': behaviour.impl
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example.behaviour.impl: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: behaviour.impl
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example.behaviour.impl
+     Y: :
+{:.shell}
 #### Dependencies
 
 Replace the auto-genearted POM in this module with the following, specifially, the `light.api` and `sensor.api` bundles are its dependencies:
@@ -904,27 +892,24 @@ Now the `behaviour.impl` smart behaviour is ready to be built using `mvn package
 ## Build the System
 
 Now build and install all smart behaviours together from the parent root directory:
-```bash
-~/eventing-example $ mvn clean install
 
-[INFO] Scanning for projects...
-[INFO] Copying .....
-[INFO] Processing ~/eventing-example/*/*.bndrun for dependencies
-[INFO] Building jar: ~/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-
-[INFO] Installing ~/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/.m2/repository/com/paremus/brain/iot/example/light.impl/0.0.1-SNAPSHOT/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-......
-[INFO] Building jar: ~/eventing-example/sensor.impl/target/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-
-[INFO] Installing ~/eventing-example/sensor.impl/target/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/.m2/repository/com/paremus/brain/iot/example/sensor.impl/0.0.1-SNAPSHOT/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-......
-[INFO] Building jar: ~/eventing-example/behaviour.impl/target/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-
-[INFO] Installing ~/eventing-example/behaviour.impl/target/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/.m2/repository/com/paremus/brain/iot/example/behaviour.impl/0.0.1-SNAPSHOT/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-```
+    ~/eventing-example $ mvn clean install
+    
+    [INFO] Scanning for projects...
+    [INFO] Copying .....
+    [INFO] Processing ~/eventing-example/*/*.bndrun for dependencies
+    [INFO] Building jar: ~/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    [INFO] Installing ~/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/.m2/repository/com/paremus/brain/iot/example/light.impl/0.0.1-SNAPSHOT/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    ......
+    [INFO] Building jar: ~/eventing-example/sensor.impl/target/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    [INFO] Installing ~/eventing-example/sensor.impl/target/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/.m2/repository/com/paremus/brain/iot/example/sensor.impl/0.0.1-SNAPSHOT/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    ......
+    [INFO] Building jar: ~/eventing-example/behaviour.impl/target/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    [INFO] Installing ~/eventing-example/behaviour.impl/target/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/.m2/repository/com/paremus/brain/iot/example/behaviour.impl/0.0.1-SNAPSHOT/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+{:.shell}
 As shown in the logs, finally there are three smart behaviurs generated in the implementation modules.
 
 The `install` goal will install the smart behaviors together with the OSGi bundles in Maven local repository (~/.m2), which will be used when creating the marketplace, as shown later in this page. Alternativly, the smart behaviours can be deployed to a respository server, and add this repository in the marketplace project.
@@ -938,33 +923,32 @@ We now pull these Modules together to create the Composite Application to test t
 
 In the `eventing-example` project directory, create the `single-framework-example` application module using the [application Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-application-archetype){:target="_blank"}:
 
-```bash
-~/eventing-example $ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=application \
-     -DarchetypeVersion=7.0.0
-```
+    ~/eventing-example $ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=application \
+         -DarchetypeVersion=7.0.0
+{:.shell}
 with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.example
-Define value for property 'artifactId': single-framework-example
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.example: : 
-Define value for property 'impl-artifactId': light.impl
-Define value for property 'impl-groupId' com.paremus.brain.iot.example: : 
-Define value for property 'impl-version' 0.0.1-SNAPSHOT: : 
-[INFO] Using property: target-java-version = 8
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.example
-artifactId: single-framework-example
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.example
-impl-artifactId: light.impl
-impl-groupId: com.paremus.brain.iot.example
-impl-version: 0.0.1-SNAPSHOT
-target-java-version: 8
- Y: :
-```
+
+    Define value for property 'groupId': com.paremus.brain.iot.example
+    Define value for property 'artifactId': single-framework-example
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.example: : 
+    Define value for property 'impl-artifactId': light.impl
+    Define value for property 'impl-groupId' com.paremus.brain.iot.example: : 
+    Define value for property 'impl-version' 0.0.1-SNAPSHOT: : 
+    [INFO] Using property: target-java-version = 8
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.example
+    artifactId: single-framework-example
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.example
+    impl-artifactId: light.impl
+    impl-groupId: com.paremus.brain.iot.example
+    impl-version: 0.0.1-SNAPSHOT
+    target-java-version: 8
+    Y: :
+{:.shell}
 ### Dependencies
 Replace the auto-genearted POM in this module with the following:
  the content is similar with the `light.impl` POM with the build configuartion:
@@ -1023,13 +1007,13 @@ index: target/index.xml;name="single-framework-example"
 ```
 
 Now build to generate the index, test index, and resolve this bndrun (you should be able to see the changes in the runbundles list afterwards). Then run whole system in the `eventing-example` root directory as done in the begining of this tutorial.
-```bash
-~/eventing-example $ cd single-framework-example
-~/eventing-example/single-framework-example $ mvn bnd-indexer:index bnd-indexer:index@test-index bnd-resolver:resolve
-~/eventing-example/single-framework-example $ cd ..
-~/eventing-example $ mvn clean verify
-~/eventing-example $ java -jar single-framework-example/target/single-framework-example.jar
-```
+
+    ~/eventing-example $ cd single-framework-example
+    ~/eventing-example/single-framework-example $ mvn bnd-indexer:index bnd-indexer:index@test-index bnd-resolver:resolve
+    ~/eventing-example/single-framework-example $ cd ..
+    ~/eventing-example $ mvn clean verify
+    ~/eventing-example $ java -jar single-framework-example/target/single-framework-example.jar
+{:.shell}
 If the `resolve` fails then check your code and try again. Once you can package it cleanly then continue to the next stage.
 {:.warning}
 
@@ -1040,27 +1024,26 @@ BRAIN-IoT provides the `behaviour-marketplace-maven-plugin` for creating a marke
 The development of the Security Light System is done, here we'll create a marketplace for it.
 
 Create a minimal enRoute maven project `security-light-marketplace` at `HOME` folder using the [bare-project Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-project-archetype){:target="_blank"}:
-```bash
-~/eventing-example $ cd
-~$ mvn archetype:generate \
-     -DarchetypeGroupId=org.osgi.enroute.archetype \
-     -DarchetypeArtifactId=project-bare \
-     -DarchetypeVersion=7.0.0
-```
-with the following values:
-```bash
-Define value for property 'groupId': com.paremus.brain.iot.marketplace
-Define value for property 'artifactId': security-light-marketplace
-Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
-Define value for property 'package' com.paremus.brain.iot.marketplace: : 
-Confirm properties configuration:
-groupId: com.paremus.brain.iot.marketplace
-artifactId: security-light-marketplace
-version: 0.0.1-SNAPSHOT
-package: com.paremus.brain.iot.marketplace
- Y: :
-```
 
+    ~/eventing-example $ cd
+    ~$ mvn archetype:generate \
+         -DarchetypeGroupId=org.osgi.enroute.archetype \
+         -DarchetypeArtifactId=project-bare \
+         -DarchetypeVersion=7.0.0
+{:.shell}
+with the following values:
+
+    Define value for property 'groupId': com.paremus.brain.iot.marketplace
+    Define value for property 'artifactId': security-light-marketplace
+    Define value for property 'version' 1.0-SNAPSHOT: : 0.0.1-SNAPSHOT
+    Define value for property 'package' com.paremus.brain.iot.marketplace: : 
+    Confirm properties configuration:
+    groupId: com.paremus.brain.iot.marketplace
+    artifactId: security-light-marketplace
+    version: 0.0.1-SNAPSHOT
+    package: com.paremus.brain.iot.marketplace
+    Y: :
+{:.shell}
 ### Dependencies
 Open pom and change the `<bnd.version>` to
 ```xml
@@ -1159,44 +1142,42 @@ Create the new `<build>` section and add the `behaviour-marketplace-maven-plugin
         </plugins>
     </build>
 ``` 
-```bash
-~ $ cd security-light-marketplace
-~/security-light-marketplace $ mvn package
-[INFO] Scanning for projects...
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building security-light-marketplace 0.0.1-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO] --- behaviour-marketplace-maven-plugin:0.0.1-SNAPSHOT:generate (default) @ security-light-marketplace ---
-......
-[INFO] Unpacking ~/.m2/repository/com/paremus/brain/iot/example/behaviour.impl/0.0.1-SNAPSHOT/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/security-light-marketplace/target/marketplace/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar ......
-[INFO] Unpacking ~/.m2/repository/com/paremus/brain/iot/example/light.impl/0.0.1-SNAPSHOT/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/security-light-marketplace/target/marketplace/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar ......
-[INFO] Unpacking ~/.m2/repository/com/paremus/brain/iot/example/sensor.impl/0.0.1-SNAPSHOT/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/security-light-marketplace/target/marketplace/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar ......
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-```
+
+    ~ $ cd security-light-marketplace
+    ~/security-light-marketplace $ mvn package
+    [INFO] Scanning for projects...                                                                        
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Building security-light-marketplace 0.0.1-SNAPSHOT
+    [INFO] ------------------------------------------------------------------------
+    [INFO] --- behaviour-marketplace-maven-plugin:0.0.1-SNAPSHOT:generate (default) @ security-light-marketplace ---
+    ......
+    [INFO] Unpacking ~/.m2/repository/com/paremus/brain/iot/example/behaviour.impl/0.0.1-SNAPSHOT/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/security-light-marketplace/target/marketplace/behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar ......
+    [INFO] Unpacking ~/.m2/repository/com/paremus/brain/iot/example/light.impl/0.0.1-SNAPSHOT/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/security-light-marketplace/target/marketplace/light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar ......
+    [INFO] Unpacking ~/.m2/repository/com/paremus/brain/iot/example/sensor.impl/0.0.1-SNAPSHOT/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour.jar to ~/security-light-marketplace/target/marketplace/sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar ......
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+{:.shell}
 The logs indicated that the smart behaviours are unpacked from the maven local Repo (~/.m2) to the `target` directory folder
 {:.note}
 
 Enter the `target` folder and check the geenrated marketplace:
-```bash
-~/security-light-marketplace $ ls target/marketplace
-behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar  light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar
-index.html                                                   sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar
-index.xml
-```
+
+    ~/security-light-marketplace $ ls target/marketplace
+    behaviour.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar  light.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar
+    index.html                                                   sensor.impl-0.0.1-SNAPSHOT-brain-iot-smart-behaviour-jar
+    index.xml
+{:.shell}
 To make the marketplace index available for configuring the Behaviour Management Service from the BRAIN-IoT UI as shown in the [Quick Start](05-quickstart.html) tutorial, the marketplace site has to be deployed to a HTTP server. The marketplace index will be also used to create a `system document` as shown in next [Destributed Deployment](20-distributed.html) tutorial.
 
 ### Deploy Marketplace to a Local HTTP server
 
 Copy the `marketplace` folder from `target` directory to the root of the HTTP server, the marketplace index is `https://localhost/marketplace/index.xml`
-```bash
-~/security-light-marketplace $ sudo cp -rf target/marketplace /var/www/html
-~/security-light-marketplace $ ls /var/www/html
-marketplace
-```
 
+    ~/security-light-marketplace $ sudo cp -rf target/marketplace /var/www/html
+    ~/security-light-marketplace $ ls /var/www/html
+    marketplace
+{:.shell}
 ### Deploy to a Nexus server
 The Security Light Marketplace is now deployed on the BRAIN-IoT Nexus server. Open the `security-light-marketplace` POM, then
 
@@ -1228,9 +1209,9 @@ Append the `org.apache.maven.plugins:maven-site-plugin` in the `<build>` section
             </plugin>
 ```
 Run the following command to deploy the site:
-```bash
-~/security-light-marketplace $ mvn clean verify site:deploy
-```
+
+    ~/security-light-marketplace $ mvn clean verify site:deploy
+{:.shell}
 After deployment is successful, then the marketplace index `https://nexus.repository-pert.ismb.it/repository/marketplaces/com.paremus.brain.iot.example/security-light-marketplace/0.0.1-SNAPSHOT/index.xml` is avilable.
 
 

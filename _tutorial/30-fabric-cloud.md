@@ -35,7 +35,7 @@ Navigate to the **CloudFormation** service and click `Create Stack`.
 
 ![CloudFormation#1](img/aws-cf-1.png){: height="700px"}
 
-Under **Specify template** enter the following for Amazon S3 URL:
+Under **Specify template** enter the following for Amazon S3 URL which is an example template:
 
 ```
 https://s3-eu-west-1.amazonaws.com/paremus-packager/fabric2.template
@@ -66,7 +66,7 @@ The default instance type `t3a.small` has 2Gb memory and is sufficient for a dem
 
 Finally select a KeyPair to allow ssh access to the instances.
 
-If you don't have any KeyPairs in this region, you can create one by navigating to `EC2/Key pairs`
+If you don't have any KeyPairs in this region, you can create one by navigating to [`EC2/Key pairs`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-keypair.html){:target="_blank"}
 {:.note}
 
 Click `Next`
