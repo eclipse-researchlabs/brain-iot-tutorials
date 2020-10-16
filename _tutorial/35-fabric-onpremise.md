@@ -81,7 +81,7 @@ Configure each fabric node to allow ssh access without password, for example:
 
 Now check that you can login without a password and check whether **sudo** requires a password:
 
-    [control]$ ssh fabric@node-1
+    [control]$ ssh -i myfabric fabric@node-1
     [node-1] $ sudo id
     Password:
 {:.shell}
@@ -100,13 +100,13 @@ When you've done this for all the fabric nodes, you can use ansible to confirm i
     $ ansible all --become --args id
     192.168.2.100 | CHANGED | rc=0 >>
     uid=0(root) gid=0(root) groups=0(root)
-
+    
     192.168.2.101 | CHANGED | rc=0 >>
     uid=0(root) gid=0(root) groups=0(root)
-
+    
     192.168.2.102 | CHANGED | rc=0 >>
     uid=0(root) gid=0(root) groups=0(root)
-
+    
     192.168.2.103 | CHANGED | rc=0 >>
     uid=0(root) gid=0(root) groups=0(root)
 {:.shell}
