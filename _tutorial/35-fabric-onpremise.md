@@ -111,6 +111,8 @@ When you've done this for all the fabric nodes, you can use ansible to confirm i
     uid=0(root) gid=0(root) groups=0(root)
 {:.shell}
 
+If the ansible `control` node is also a fabric node, it still needs to be configured for ssh access without password.
+{:.note}
 
 ### Configure Java
 
