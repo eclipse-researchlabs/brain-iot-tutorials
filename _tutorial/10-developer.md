@@ -82,7 +82,7 @@ This is a maven parent project, which will contain multiple modules for the Secu
 
 Open POM and change the default `<bnd.version>` property to avoid build failure:
 ```xml
-  <bnd.version>4.2.0</bnd.version>
+  <bnd.version>5.1.2</bnd.version>
 ```
 Before implementing the module, append the following BRAIN-IoT runtime dependencies in the `<dependencyManagement>` section in parent POM, as they are the dependencies of EventBus.
 
@@ -581,7 +581,7 @@ Build the `eventing-example` project:
     [INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ light.impl ---
     [INFO] Building jar: /home/rui/Documents/SmartBehaviourEventBus/eventing-example/light.impl/target/light.impl-0.0.1-SNAPSHOT.jar
     [INFO] 
-    [INFO] --- bnd-resolver-maven-plugin:4.2.0:resolve (default) @ light.impl ---
+    [INFO] --- bnd-resolver-maven-plugin:5.1.2:resolve (default) @ light.impl ---
     [INFO] 
     [INFO] --- smart-behaviour-maven-plugin:0.0.1-SNAPSHOT:smart-behaviour (default) @ light.impl ---
     [INFO] Gathering dependencies
@@ -1047,7 +1047,7 @@ with the following values:
 ### Dependencies
 Open pom and change the `<bnd.version>` to
 ```xml
-<bnd.version>4.2.0</bnd.version>
+<bnd.version>5.1.2</bnd.version>
 ```
 Similar with the POM setup of `eventing.example` project above, append the following repositories in `<repositories>` section for downloading the BRAIN-IoT runtime dependencies:
 
