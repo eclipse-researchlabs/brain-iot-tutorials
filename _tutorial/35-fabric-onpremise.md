@@ -155,6 +155,9 @@ They can be obtained from `fabric-n4` in the BRAIN-IoT demo network:
     [control]$ scp fabric-n4@fabric-n4:ansible/license.ini ansible/.
 {:.shell}
 
+If you don't have access to the BRAIN-IoT demo network, then you need to contact [Paremus](mailto:support@paremus.com) to obtain these files.
+{:.note}
+
 ## Manage Fabric
 
 When you have successfully deployed the fabric, you can use it for the [Distributed Deployment](20-distributed.html) tutorial.
