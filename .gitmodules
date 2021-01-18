@@ -1,6 +1,8 @@
 [submodule "_includes/fabric-systems"]
 	path = _includes/fabric-systems
-	url = ../fabric-systems.git
+	url = https://github.com/eclipse-researchlabs/brain-iot-fabric-systems.git
+	branch = main
 [submodule "_includes/admin-user-interface"]
 	path = _includes/admin-user-interface
-	url = ../admin-user-interface.git
+	url = https://github.com/eclipse-researchlabs/brain-iot-admin-user-interface.git
+	branch = main
