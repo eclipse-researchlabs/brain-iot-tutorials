@@ -18,20 +18,20 @@ A Smart Behaviour is a functional unit deployable in an OSGi container, and it's
 
 ## Build and Run
 
-Download the [SmartBehaviourEventBus](https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git){:target="_blank"} Git repository, and change directory into `SmartBehaviourEventBus/eventing-example`.
+Download the [SmartBehaviourEventBus](https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git){:target="_blank"} Git repository, and change directory into `brain-iot-EventBus/eventing-example`.
 
-    ~ $ git clone https://git.repository-pert.ismb.it/BRAIN-IoT/SmartBehaviourEventBus.git
-    ~ $ cd SmartBehaviourEventBus/eventing-example
+    ~ $ git clone https://github.com/eclipse-researchlabs/brain-iot-EventBus.git
+    ~ $ cd brain-iot-EventBus/eventing-example
 {:.shell}
 
 ### Building the example
 Build the Application with the following command:
 
-    ~/SmartBehaviourEventBus/eventing-example $ mvn verify
+    ~/brain-iot-EventBus/eventing-example $ mvn verify
 {:.shell}
 ### Running the example
 
-    ~/SmartBehaviourEventBus/eventing-example $ java -jar single-framework-example/target/single-framework-example.jar
+    ~/brain-iot-EventBus/eventing-example $ java -jar single-framework-example/target/single-framework-example.jar
 {:.shell}
 To test that the application is running, visit:
 
@@ -53,7 +53,7 @@ with each module having a POM that describes its dependencies.
 ### Project Setup
 First change into a new directory, since we are recreating the project, here we go to the `HOME` directory:
 
-    ~/SmartBehaviourEventBus/eventing-example $ cd ~
+    ~/brain-iot-EventBus/eventing-example $ cd ~
 {:.shell}
 Use the [bare-project Archetype](https://enroute.osgi.org/about/112-enRoute-Archetypes.html#the-project-archetype){:target="_blank"} to create a microservice project:
 

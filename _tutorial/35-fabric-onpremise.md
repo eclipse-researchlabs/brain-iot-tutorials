@@ -19,10 +19,10 @@ Each node in the fabric needs to be allowed to run **sudo** without a password a
 
 Choose one node from which you want to control the fabric. It doesn't have to be a fabric node, but it must have network connectivity to all other nodes in the fabric. We'll call this the `control` node.
 
-Clone the [fabric-deployment](https://git.repository-pert.ismb.it/BRAIN-IoT/fabric-deployment){:target="_blank"} project and copy the `ansible` directory to the `control` node:
+Clone the [brain-iot-fabric-deployment](https://github.com/eclipse-researchlabs/brain-iot-fabric-deployment.git){:target="_blank"} project and copy the `ansible` directory to the `control` node:
 
-    $ git clone git@git.repository-pert.ismb.it:BRAIN-IoT/fabric-deployment.git
-    $ cd fabric-deployment
+    $ git clone https://github.com/eclipse-researchlabs/brain-iot-fabric-deployment.git
+    $ cd brain-iot-fabric-deployment
     $ scp -r ansible fabric@control:.
 {:.shell}
 
@@ -120,7 +120,7 @@ The fabric requires Java 8.
 
 Although openjdk-8 can be installed via the OS package manager, we've found that Oracle Java performs better on Raspberry Pi.
 
-Download [Oracle Java 8][https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html] for Raspberry Pi (`jdk-8uXXX-linux-arm32-vfp-hflt.tar.gz`) and other Linux (`jdk-8uXXX-linux-x64.tar.gz`)
+Download [Oracle Java 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) for Raspberry Pi (`jdk-8uXXX-linux-arm32-vfp-hflt.tar.gz`) and other Linux (`jdk-8uXXX-linux-x64.tar.gz`)
 
 Then edit `fabric.yml` and change `jdk_version` to match the version downloaded:
 
