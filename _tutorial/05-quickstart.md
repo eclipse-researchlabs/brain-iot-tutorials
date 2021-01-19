@@ -21,17 +21,17 @@ We start by first downloading and then running the core BRAIN-IoT services in a 
 
 The `admin-user-interface` git repository contains a useful `app.test` that runs a whole BRAIN-IoT system in a single container.
 
-Clone the [admin-user-interface](https://git.repository-pert.ismb.it/BRAIN-IoT/admin-user-interface){:target="_blank"} from GitLab and change directory into `admin-user-interface`.
+Clone the [brain-iot-admin-user-interface](https://github.com/eclipse-researchlabs/brain-iot-admin-user-interface){:target="_blank"} from GitLab and change directory into `brain-iot-admin-user-interface`.
 
-    ~ $ git clone git@git.repository-pert.ismb.it:BRAIN-IoT/admin-user-interface.git
-    ~ $ cd admin-user-interface
+    ~ $ git clone https://github.com/eclipse-researchlabs/brain-iot-admin-user-interface.git
+    ~ $ cd brain-iot-admin-user-interface
 {: .shell }
 
 ### Build
 
 Build  with the following command:
 
-    ~/admin-user-interface $ mvn install
+    ~/brain-iot-admin-user-interface $ mvn install
 {: .shell }
 
 ### Run
@@ -49,7 +49,7 @@ Build  with the following command:
 
 It can be started with the `bnd run` command:
 
-    ~/admin-user-interface $ bnd run app.test/app.bndrun
+    ~/brain-iot-admin-user-interface $ bnd run app.test/app.bndrun
     [INFO] Started Jetty 9.4.15.v20190215 at port(s) HTTP:8081 on context path / [minThreads=8,maxThreads=200,acceptors=1,selectors=4]
 {: .shell }
 

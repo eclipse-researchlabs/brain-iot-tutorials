@@ -19,15 +19,17 @@ $ git submodule update
 
 To show full source files in the tutorials, they could each be copied to `_includes`, but then risk becoming out-of-date if the source is updated.
 
-It's better to reference them directly in their git repository, by adding a git submodule:
+This is why it's better to reference them directly in their git repository, by adding a git submodule. If you want to reference code from another repository then add a submodule like this:
 
 ```
-git submodule add../fabric-systems.git _includes/fabric-systems
+git submodule add https://github.com/eclipseresearchlabs/<repo-name>.git _includes/<repo-name>
 ```
 
-The full content of the `fabric-systems` git repository will then be available in `_includes/fabric-systems`.
+where `repo-name` is the name of the repository
 
-## Run Locally
+The full content of the git repository will then be available in `_includes/<repo-name>`.
+
+## Run and View the Tutorials Locally
 
 To Install Jekyll, you need the ruby gem command:
 
@@ -46,7 +48,7 @@ You can now browse to <http://127.0.0.1:4000> to see the site, which is automati
 
 ## Deploy
 
-[.gitlab-ci.yml](.gitlab-ci.yml) is configured to build the site when the master branch is updated. However, the BRAIN-IoT GitLab is not configured to publish GitLab pages, so the site currently has to be deployed manually.
+[.travis.yml](.travis.yml) is configured to build the site for all branches and pull requests. However, Travis is not configured to publish the tutorial website, so the site currently has to be deployed manually.
 
 The generated Jekyll site is in `_site` and can be deployed to any web server.
 
@@ -57,7 +59,6 @@ A workaround is to use `wget` to make the site relative:
 ```
 wget --recursive --no-clobber --page-requisites --html-extension --convert-links  --exclude-domains localhost http://127.0.0.1:4000
 ```
-
 
 
 [jekyll]: http://jekyllrb.com/
