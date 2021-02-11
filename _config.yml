@@ -5,6 +5,8 @@ markdown: kramdown
 
 theme: minima
 
+baseurl: brain-iot-tutorials
+
 syntax_highlighter_opts:
   disable: true
 
