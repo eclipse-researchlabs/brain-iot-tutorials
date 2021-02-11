@@ -40,7 +40,7 @@ td {
 <div>
 <table>
 
-{% for tutorial in site.tutorial %}<tr><td><a href="{{tutorial.url}}">{{tutorial.title}}</a></td><td>{{tutorial.summary}}</td></tr>
+{% for tutorial in site.tutorial %}<tr><td><a href="{{tutorial.url | relative_url }}">{{tutorial.title}}</a></td><td>{{tutorial.summary}}</td></tr>
 {% endfor %}
 
 </table>
