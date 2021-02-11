@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Quick Start | BRAIN-IoT</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Quick Start" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Summary" />
+<meta property="og:description" content="Summary" />
+<meta property="og:site_name" content="BRAIN-IoT" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-11T13:10:26+00:00" />
+<script type="application/ld+json">
+{"description":"Summary","@type":"BlogPosting","headline":"Quick Start","dateModified":"2021-02-11T13:10:26+00:00","datePublished":"2021-02-11T13:10:26+00:00","url":"/tutorial/05-quickstart.html","mainEntityOfPage":{"@type":"WebPage","@id":"/tutorial/05-quickstart.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vbnet.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
+  <!-- Overridden theme -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" /> -->
+  <!-- Bootstrap override -->
+  <link rel="stylesheet" href="/css/bootstrap-override.css" />
+
+  <link rel="alternate" type="application/rss+xml" title="BRAIN-IoT" href="/feed.xml" />
+
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+</head>
+
+
+  <body>
+    
+
+    <div class="container">
+
+      <header class="site-header">
+
+
+<a class="site-title" href="/"><img src="/img/BRAIN-IoT_Logo.png" alt="BRAIN-IoT" height="75" width="154" /></a>
+
+    <nav class="site-nav">
+      <img class="menu-icon" src="/img/gi.svg" />
+      
+      <div class="trigger">
+      	<!--<a class="page-link" href="/">Welcome</a>-->
+        <!-- get current page title and "collection" to figure out which nav
+             link should be "active" -->
+        
+        
+        
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+                
+                  <a class="page-link" href="/tutorial/">Tutorials</a>
+                
+              
+            
+          
+        
+        </div>
+      </div>
+
+    </nav>
+
+</header>
+
+
+      <div class="page-content">
+        <!--div class="wrapper"-->
+          <div class="container-fluid">
+
+<div class="row-fluid">
+    <!--Nav Bar -->
+    <nav class="col-xs-0 col-md-3 bs-docs-sidebar">
+    <ul id="sidebar" class="nav nav-stacked fixed">
+        <!-- Find the h2 group and any h3 subgroups -->
+        
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#summary">Summary</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#run-core-services">Run Core Services</a>
+
+              
+                <ul class="nav nav-stacked">
+                  
+
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#download">Download</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#build">Build</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#run">Run</a>
+                    </li>
+                  
+
+                </ul>
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#explore-brain-iot-ui">Explore BRAIN-IoT UI</a>
+
+              
+                <ul class="nav nav-stacked">
+                  
+
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#configure-marketplace">Configure marketplace</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#install-smart-behaviour">Install Smart Behaviour</a>
+                    </li>
+                  
+
+                </ul>
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#security-light-example">Security Light Example</a>
+
+              
+                <ul class="nav nav-stacked">
+                  
+
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#trigger-example-sensor">Trigger Example Sensor</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#observe-example-light-bulb">Observe Example Light bulb</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#observe-events">Observe Events</a>
+                    </li>
+                  
+
+                </ul>
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#end">End</a>
+
+              
+
+            </li>
+          
+
+        
+    </ul>
+</nav>
+
+
+    <!--Main Content -->
+    <div class="col-xs-12 col-md-9">
+      <!--<div class="post">-->
+
+        <article class="post-content">
+
+
+          <a class=nav-prev href="00-prerequisites.html" >Prev</a>
+          <a class=nav-next href="10-developer.html" >Next</a>
+          <hr />
+          <br />
+          <h1>Quick Start</h1>
+          <br />
+
+          <p>
+</p>
+
+          <p></p>
+
+          <h2 id="summary">Summary</h2>
+
+<p>In this tutorial we’ll first run the BRAIN-IoT core services in a single container, and then use the BRAIN-IoT UI to install and run the Security Light Example, which contains 3 Smart Behaviours.</p>
+
+<p class="note">BRAIN-IoT uses a distributed archtecture, but it’s much faster to deploy it in a single container first. The <a href="20-distributed.html">Distributed Deployment</a> tutorial covers deploying a distributed BRAIN-IoT system.</p>
+
+<h2 id="run-core-services">Run Core Services</h2>
+
+<p>We start by first downloading and then running the core BRAIN-IoT services in a single container . This will also confirm that your local environment meets the required <a href="00-prerequisites.html#required-tools">prerequisites</a>.</p>
+
+<h3 id="download">Download</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">admin-user-interface</code> git repository contains a useful <code class="language-plaintext highlighter-rouge">app.test</code> that runs a whole BRAIN-IoT system in a single container.</p>
+
+<p>Clone the <a href="https://github.com/eclipse-researchlabs/brain-iot-admin-user-interface" target="_blank">brain-iot-admin-user-interface</a> from GitLab and change directory into <code class="language-plaintext highlighter-rouge">brain-iot-admin-user-interface</code>.</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~ $ git clone https://github.com/eclipse-researchlabs/brain-iot-admin-user-interface.git
+~ $ cd brain-iot-admin-user-interface
+</code></pre></div></div>
+
+<h3 id="build">Build</h3>
+
+<p>Build  with the following command:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/brain-iot-admin-user-interface $ mvn install
+</code></pre></div></div>
+
+<h3 id="run">Run</h3>
+
+<p><code class="language-plaintext highlighter-rouge">app.test/app.bndrun</code> defines an application containing the BRAIN-IoT core services and UI.</p>
+
+<p><a class="btn btn-primary" data-toggle="collapse" href="#bndrun" aria-expanded="false" aria-controls="app.bndrun">app.bndrun</a></p>
+<div class="collapse" id="bndrun">
+  <div class="card card-block">
+
+<figure class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="py">-standalone</span><span class="p">:</span> <span class="s">target/index.xml</span>
+
+<span class="py">-resolve.effective</span><span class="p">:</span> <span class="s">active</span>
+
+<span class="py">-runfw</span><span class="p">:</span> <span class="s">org.apache.felix.framework</span>
+<span class="py">-runee</span><span class="p">:</span> <span class="s">JavaSE-11</span>
+
+<span class="c"># marketplace indexes for Behaviour Management System
+</span>
+<span class="py">remoteLight</span><span class="p">=</span><span class="s">https://nexus.repository-pert.ismb.it/repository/marketplaces/com.paremus.brain.iot.marketplace/security-light-marketplace/0.0.1-SNAPSHOT/index.xml</span>
+
+<span class="c"># (assumes marketplace is checked out next to this project)
+</span><span class="py">localLight</span><span class="p">=</span><span class="s">file://${.}/../../marketplace/security-light-marketplace/target/marketplace/index.xml</span>
+
+<span class="c"># empty indexes allows user to configure in UI/config
+</span><span class="py">mktplIndexes</span><span class="p">=</span>
+
+<span class="py">-runvm</span><span class="p">:</span> <span class="s">-ea,</span><span class="se">\
+</span> <span class="s">-Dorg.slf4j.simpleLogger.defaultLogLevel=debug,</span><span class="se">\
+</span> <span class="s">-Dlogback.configurationFile=${.}/logback.xml,</span><span class="se">\
+</span> <span class="s">-Djava.util.logging.config.file=${.}/logging.properties,</span><span class="se">\
+</span> <span class="s">-Dorg.apache.felix.http.requestlog.file.path=./request.log,</span><span class="se">\
+</span> <span class="s">-Dcom.paremus.brain.iot.ui.bms.indexes=${mktplIndexes},</span><span class="se">\
+</span> <span class="s">-Dorg.osgi.service.http.port=8081</span>
+
+
+<span class="c"># javascript client is embedded in admin-server
+# setting this property allows testing with non-embedded version
+##-Dcom.paremus.ui.client.dir=${.}/.../js_client/build-dev
+</span>
+<span class="c">#-runtrace: true
+</span>
+<span class="py">-runprovidedcapabilities</span><span class="p">:</span> <span class="s">${native_capability}</span>
+
+<span class="py">-runsystempackages</span><span class="p">:</span> <span class="s">sun.reflect</span>
+
+<span class="c"># Bnd doesn't know that we're using these remotely:
+</span><span class="py">-runsystemcapabilities</span><span class="p">:</span> <span class="se">\
+</span>    <span class="s">osgi.service;objectClass=com.paremus.brain.iot.management.api.BehaviourManagement,</span><span class="se">\
+</span>    <span class="s">osgi.service;objectClass=org.osgi.service.resolver.Resolver</span>
+
+<span class="py">-runrequires</span><span class="p">:</span> <span class="se">\
+</span>    <span class="s">bnd.identity;id='com.paremus.brain.iot.eventing.impl',</span><span class="se">\
+</span>    <span class="s">bnd.identity;id='com.paremus.brain.iot.management.impl',</span><span class="se">\
+</span>    <span class="s">bnd.identity;id='com.paremus.ui.metaconfig',</span><span class="se">\
+</span>    <span class="s">bnd.identity;id='com.paremus.brain.iot.ui.rest.app',</span><span class="se">\
+</span>    <span class="s">bnd.identity;id='com.paremus.ui.rest.config',</span><span class="se">\
+</span>    <span class="s">bnd.identity;id='com.paremus.ui.client'</span>
+
+<span class="py">debug</span><span class="p">:</span><span class="se">\
+</span>    <span class="s">org.apache.felix.webconsole;version='[4.3.12.all,4.3.12.all]',</span><span class="se">\
+</span>    <span class="s">org.apache.felix.webconsole.plugins.ds;version='[2.1.0,2.1.1]',</span><span class="se">\
+</span>    <span class="s">org.apache.felix.log;version='[1.2.2,1.2.3)',</span><span class="se">\
+</span>    <span class="s">org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',</span><span class="se">\
+</span>    <span class="s">org.apache.felix.gogo.runtime;version='[1.0.10,1.0.11)',</span><span class="se">\
+</span>    <span class="s">org.apache.felix.gogo.jline;version='[1.0.10,1.0.11)',</span><span class="se">\
+</span>    <span class="s">org.jline;version='[3.5.1,3.5.2)'</span>
+
+<span class="c"># after resolve add ${debug} if required
+</span><span class="py">-runbundles</span><span class="p">:</span> <span class="se">\
+</span>	<span class="s">ch.qos.logback.classic;version='[1.2.3,1.2.4)',</span><span class="se">\
+</span>	<span class="s">ch.qos.logback.core;version='[1.2.3,1.2.4)',</span><span class="se">\
+</span>	<span class="s">com.fasterxml.jackson.core.jackson-annotations;version='[2.9.0,2.9.1)',</span><span class="se">\
+</span>	<span class="s">com.fasterxml.jackson.core.jackson-core;version='[2.9.8,2.9.9)',</span><span class="se">\
+</span>	<span class="s">com.fasterxml.jackson.core.jackson-databind;version='[2.9.8,2.9.9)',</span><span class="se">\
+</span>	<span class="s">com.fasterxml.jackson.jaxrs.jackson-jaxrs-base;version='[2.9.8,2.9.9)',</span><span class="se">\
+</span>	<span class="s">com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider;version='[2.9.8,2.9.9)',</span><span class="se">\
+</span>	<span class="s">com.fasterxml.jackson.module.jackson-module-jaxb-annotations;version='[2.9.8,2.9.9)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.eventing.api;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.installer.api;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.management.api;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.ui.rest.app;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.ui.rest;version='[1.0.0,1.0.1)',</span><span class="se">\
+</span>	<span class="s">jaxb-api;version='[2.2.11,2.2.12)',</span><span class="se">\
+</span>	<span class="s">org.apache.aries.javax.jax.rs-api;version='[1.0.4,1.0.5)',</span><span class="se">\
+</span>	<span class="s">org.apache.aries.jax.rs.shiro.authz;version='[1.0.2,1.0.3)',</span><span class="se">\
+</span>	<span class="s">org.apache.aries.jax.rs.whiteboard;version='[1.0.4,1.0.5)',</span><span class="se">\
+</span>	<span class="s">org.apache.commons.commons-configuration2;version='[2.5.0,2.5.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.commons.commons-text;version='[1.6.0,1.6.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.commons.lang3;version='[3.9.0,3.9.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.commons.logging;version='[1.2.0,1.2.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.felix.converter;version='[1.0.8,1.0.9)',</span><span class="se">\
+</span>	<span class="s">org.apache.felix.http.jetty;version='[4.0.8,4.0.9)',</span><span class="se">\
+</span>	<span class="s">org.apache.felix.http.servlet-api;version='[1.1.2,1.1.3)',</span><span class="se">\
+</span>	<span class="s">org.apache.servicemix.specs.annotation-api-1.3;version='[1.3.0,1.3.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.servicemix.specs.jaxws-api-2.2;version='[2.9.0,2.9.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.servicemix.specs.saaj-api-1.3;version='[2.9.0,2.9.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.shiro.core;version='[1.4.0,1.4.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.shiro.web;version='[1.4.0,1.4.1)',</span><span class="se">\
+</span>	<span class="s">org.osgi.service.jaxrs;version='[1.0.0,1.0.1)',</span><span class="se">\
+</span>	<span class="s">org.osgi.util.pushstream;version='[1.0.0,1.0.1)',</span><span class="se">\
+</span>	<span class="s">slf4j.api;version='[1.7.25,1.7.26)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.eventing.impl;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.installer.impl;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.management.impl;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.message.integrity.api;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.message.integrity.insecure.impl;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">com.paremus.brain.iot.resolver.impl;version='[0.0.1,0.0.2)',</span><span class="se">\
+</span>	<span class="s">org.osgi.service.log;version='[1.4.0,1.4.1)',</span><span class="se">\
+</span>	<span class="s">com.github.oshi.oshi-core;version='[4.2.1,4.2.2)',</span><span class="se">\
+</span>	<span class="s">com.sun.jna;version='[5.5.0,5.5.1)',</span><span class="se">\
+</span>	<span class="s">com.sun.jna.platform;version='[5.5.0,5.5.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.felix.metatype;version='[1.2.2,1.2.3)',</span><span class="se">\
+</span>	<span class="s">org.apache.felix.configadmin;version='[1.9.16,1.9.17)',</span><span class="se">\
+</span>	<span class="s">org.apache.felix.scr;version='[2.1.16,2.1.17)',</span><span class="se">\
+</span>	<span class="s">org.apache.geronimo.specs.geronimo-activation_1.1_spec;version='[1.1.0,1.1.1)',</span><span class="se">\
+</span>	<span class="s">biz.aQute.bndlib;version='[4.3.0,4.3.1)',</span><span class="se">\
+</span>	<span class="s">biz.aQute.repository;version='[4.3.0,4.3.1)',</span><span class="se">\
+</span>	<span class="s">com.paremus.ui.client;version='[1.0.0,1.0.1)',</span><span class="se">\
+</span>	<span class="s">com.paremus.ui.metaconfig;version='[1.0.0,1.0.1)',</span><span class="se">\
+</span>	<span class="s">com.paremus.ui.rest.config;version='[1.0.0,1.0.1)',</span><span class="se">\
+</span>	<span class="s">org.apache.aries.jax.rs.jackson;version='[1.0.2,1.0.3)'</span></code></pre></figure>
+
+</div>
+</div>
+
+<p>It can be started with the <code class="language-plaintext highlighter-rouge">bnd run</code> command:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/brain-iot-admin-user-interface $ bnd run app.test/app.bndrun
+[INFO] Started Jetty 9.4.15.v20190215 at port(s) HTTP:8081 on context path / [minThreads=8,maxThreads=200,acceptors=1,selectors=4]
+</code></pre></div></div>
+
+<p class="note">The console will contain more output than shown above.
+When you want to terminate the application press <strong>Ctrl+C</strong>.</p>
+
+<h2 id="explore-brain-iot-ui">Explore BRAIN-IoT UI</h2>
+
+<p>Browse to  <a href="http://localhost:8081" target="_blank">http://localhost:8081</a>, where you should see the BRAIN-IoT UI. Login with username <code class="language-plaintext highlighter-rouge">admin</code> and password <code class="language-plaintext highlighter-rouge">admin</code>:</p>
+
+<p><img src="img/ui-dashboard.png" alt="UI Dashboard" height="700px" /></p>
+
+<h3 id="configure-marketplace">Configure marketplace</h3>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">Events</code> tab and you’ll see that no events are found.</p>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">Behaviours</code> tab and you’ll see that no behaviours are found.</p>
+
+<p>This is because the Behaviour Management Service (BMS) has not been configured with any marketplace artifacts. So we’ll configure it with the marketplace for the Security Light Example, which is deployed in Nexus.</p>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">Configuration</code> tab and then <code class="language-plaintext highlighter-rouge">Behaviour Management Service</code> then copy the <a href="https://nexus.repository-pert.ismb.it/repository/marketplaces/com.paremus.brain.iot.marketplace/security-light-marketplace/0.0.1-SNAPSHOT/index.xml">security light marketplace</a> URL into the <code class="language-plaintext highlighter-rouge">Indexes</code> field and save the configuration:</p>
+
+<p><img src="img/ui-config-bms.png" alt="UI ConfigBMS" height="700px" /></p>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">Behaviours</code> tab again and you’ll now see the Security Light Example behaviours:.</p>
+
+<p><img src="img/ui-behaviours.png" alt="UI Behaviours" height="700px" /></p>
+
+<h3 id="install-smart-behaviour">Install Smart Behaviour</h3>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">Example Smart Security Sensor</code> and  then click in the <code class="language-plaintext highlighter-rouge">Install host</code> field. Select the only host and click <code class="language-plaintext highlighter-rouge">INSTALL</code>:</p>
+
+<p><img src="img/ui-install-sensor.png" alt="UI Install Sensor" height="700px" /></p>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">Events</code> tab and you should see two events for installation:</p>
+
+<p><img src="img/ui-events-install.png" alt="UI Install Events" height="700px" /></p>
+
+<p>Now click back to the <code class="language-plaintext highlighter-rouge">Behaviours</code> tab and you’ll see the Example Security Sensor is installed:</p>
+
+<p><img src="img/ui-behaviours-sensor.png" alt="UI Behaviours Sensor Installed" height="700px" /></p>
+
+<h2 id="security-light-example">Security Light Example</h2>
+
+<p>We’re now ready to run through the Security Light Example.</p>
+
+<p>It consists of a <code class="language-plaintext highlighter-rouge">sensor</code>,  a <code class="language-plaintext highlighter-rouge">light</code> and a <code class="language-plaintext highlighter-rouge">controller</code>, all implemented as BRAIN-IoT Smart Behaviours. The <code class="language-plaintext highlighter-rouge">sensor</code> and <code class="language-plaintext highlighter-rouge">light</code> are ‘virtual’ and implemented as web pages.</p>
+
+<p>When the sensor is activated it sends an event to the controller. The controller then sends a series of events to the light which cause it to switch on brightly and then slowly dim.</p>
+
+<p>We have currently only installed the <code class="language-plaintext highlighter-rouge">sensor</code>.</p>
+
+<p>We will show that when the sensor is activated, the BMS will detect the unhandled event for the <code class="language-plaintext highlighter-rouge">controller</code> and automatically install the appropriate behaviour from the marketplace.</p>
+
+<p>Similarly, when the <code class="language-plaintext highlighter-rouge">controller</code> sends an event to the <code class="language-plaintext highlighter-rouge">light</code>, the BMS will automatically install the <code class="language-plaintext highlighter-rouge">light</code> behaviour from the marketplace.</p>
+
+<h3 id="trigger-example-sensor">Trigger Example Sensor</h3>
+
+<p>So let’s get started!</p>
+
+<p>Browse to  <a href="http://localhost:8081/example/sensor-ui/index.html" target="_blank">http://localhost:8081/example/sensor-ui/index.html</a>, where you should see the Example Sensor webpage:</p>
+
+<p><img src="img/eg-sensor-ui.png" alt="Example Sensor UI" height="700px" /></p>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Trigger the sensor</code>.</p>
+
+<p>Switch back to the main BRAIN-IoT UI and click the <code class="language-plaintext highlighter-rouge">Behaviours</code> tab. You should see that all behaviours are now installed (you may need to refresh page):</p>
+
+<p><img src="img/ui-behaviours-all.png" alt="UI Behaviours All Installed" height="700px" /></p>
+
+<h3 id="observe-example-light-bulb">Observe Example Light bulb</h3>
+
+<p>Browse to  <a href="http://localhost:8081/example/light-ui/index.html" target="_blank">http://localhost:8081/example/light-ui/index.html</a>, where you should see the Example Light Bulb webpage:</p>
+
+<p><img src="img/eg-light-ui.png" alt="Example Light  UI" height="700px" /></p>
+
+<p>If you missed it being lit up, then just click <code class="language-plaintext highlighter-rouge">Trigger the sensor</code> again and then switch back to the <code class="language-plaintext highlighter-rouge">light</code> webpage.</p>
+
+<h3 id="observe-events">Observe Events</h3>
+
+<p>Now  switch back to the main BRAIN-IoT UI and click the <code class="language-plaintext highlighter-rouge">Events</code> tab. You should see lots of events, specifically <code class="language-plaintext highlighter-rouge">SensorReadingDTO</code> which is sent from the <code class="language-plaintext highlighter-rouge">sensor</code> and <code class="language-plaintext highlighter-rouge">LightCommand</code> which is sent from the <code class="language-plaintext highlighter-rouge">controller</code>:</p>
+
+<p><img src="img/ui-events-example.png" alt="Example Events" height="700px" /></p>
+
+<h2 id="end">End</h2>
+<p>That completes this tutorial.</p>
+
+<p>To terminate the application press <strong>Ctrl+C</strong> in the terminal window.</p>
+
+
+
+        </article>
+
+      <!--</div>-->
+        <hr />
+        <a class=nav-prev href="00-prerequisites.html" >Prev</a>
+        <a class=nav-next href="10-developer.html" >Next</a>
+
+    </div>
+</div>
+</div>
+
+        <!--/div-->
+      </div>
+
+      <footer class="site-footer">
+
+<nav class=next-prev>
+        <a href='/tutorial/00-prerequisites.html'></a> <a href='/tutorial/10-developer.html'></a>
+</nav>
+
+<script>
+$(function() {
+  return $("h2, h3, h4, h5, h6").each(function(i, el) {
+    var $el, icon, id;
+    $el = $(el);
+    id = $el.attr('id');
+    icon = '<i class="fa fa-link"></i>';
+    if (id) {
+      return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+    }
+  });
+});
+</script>
+
+</footer>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- MathJax -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/javascript">
+    $('body').scrollspy({
+        target: '.bs-docs-sidebar',
+        offset: 150 /* fixed header is about 40px high */
+    });
+    </script>
+
+  </body>
+
+</html>

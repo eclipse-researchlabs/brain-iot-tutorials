@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Create Fabric on-premise | BRAIN-IoT</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Create Fabric on-premise" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Summary" />
+<meta property="og:description" content="Summary" />
+<meta property="og:site_name" content="BRAIN-IoT" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-11T13:10:26+00:00" />
+<script type="application/ld+json">
+{"description":"Summary","@type":"BlogPosting","headline":"Create Fabric on-premise","dateModified":"2021-02-11T13:10:26+00:00","datePublished":"2021-02-11T13:10:26+00:00","url":"/tutorial/35-fabric-onpremise.html","mainEntityOfPage":{"@type":"WebPage","@id":"/tutorial/35-fabric-onpremise.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vbnet.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
+  <!-- Overridden theme -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" /> -->
+  <!-- Bootstrap override -->
+  <link rel="stylesheet" href="/css/bootstrap-override.css" />
+
+  <link rel="alternate" type="application/rss+xml" title="BRAIN-IoT" href="/feed.xml" />
+
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+</head>
+
+
+  <body>
+    
+
+    <div class="container">
+
+      <header class="site-header">
+
+
+<a class="site-title" href="/"><img src="/img/BRAIN-IoT_Logo.png" alt="BRAIN-IoT" height="75" width="154" /></a>
+
+    <nav class="site-nav">
+      <img class="menu-icon" src="/img/gi.svg" />
+      
+      <div class="trigger">
+      	<!--<a class="page-link" href="/">Welcome</a>-->
+        <!-- get current page title and "collection" to figure out which nav
+             link should be "active" -->
+        
+        
+        
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+                
+                  <a class="page-link" href="/tutorial/">Tutorials</a>
+                
+              
+            
+          
+        
+        </div>
+      </div>
+
+    </nav>
+
+</header>
+
+
+      <div class="page-content">
+        <!--div class="wrapper"-->
+          <div class="container-fluid">
+
+<div class="row-fluid">
+    <!--Nav Bar -->
+    <nav class="col-xs-0 col-md-3 bs-docs-sidebar">
+    <ul id="sidebar" class="nav nav-stacked fixed">
+        <!-- Find the h2 group and any h3 subgroups -->
+        
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#summary">Summary</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#setup">Setup</a>
+
+              
+                <ul class="nav nav-stacked">
+                  
+
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#configure-nodes-in-fabric">Configure nodes in fabric</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#configure-ssh">Configure ssh</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#configure-java">Configure Java</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#copy-fabric-installation-resources">Copy fabric installation ...</a>
+                    </li>
+                  
+
+                </ul>
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#manage-fabric">Manage Fabric</a>
+
+              
+                <ul class="nav nav-stacked">
+                  
+
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#deploy-the-fabric">Deploy the Fabric</a>
+                    </li>
+                  
+
+                </ul>
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#control-brain-iot-fabric">Control Brain-IoT Fabric</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#trouble-shooting">Trouble Shooting</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#end">End</a>
+
+              
+
+            </li>
+          
+
+        
+    </ul>
+</nav>
+
+
+    <!--Main Content -->
+    <div class="col-xs-12 col-md-9">
+      <!--<div class="post">-->
+
+        <article class="post-content">
+
+
+          <a class=nav-prev href="30-fabric-cloud.html" >Prev</a>
+          <a class=nav-next href="../tutorial" >Next</a>
+          <hr />
+          <br />
+          <h1>Create Fabric on-premise</h1>
+          <br />
+
+          <p>
+</p>
+
+          <p></p>
+
+          <h2 id="summary">Summary</h2>
+
+<p>This tutorial shows how to create a Fabric using existing compute resources.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p class="note">Each node in the fabric needs to be allowed to run <strong>sudo</strong> without a password and be accessible via ssh key login. It is recommended, but not required, to create a <code class="language-plaintext highlighter-rouge">fabric_adm</code> user on all nodes. The fabric deployment will create <code class="language-plaintext highlighter-rouge">fabric</code> users.</p>
+
+<p><a href="https://github.com/ansible/ansible">Ansible</a> is used to manage the fabric deployment.</p>
+
+<p>Choose one node from which you want to control the fabric. It doesn’t have to be a fabric node, but it must have network connectivity to all other nodes in the fabric. We’ll call this the <code class="language-plaintext highlighter-rouge">control</code> node.</p>
+
+<p>Clone the <a href="https://github.com/eclipse-researchlabs/brain-iot-fabric-deployment.git" target="_blank">brain-iot-fabric-deployment</a> project and copy the <code class="language-plaintext highlighter-rouge">ansible</code> directory to the <code class="language-plaintext highlighter-rouge">control</code> node:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/eclipse-researchlabs/brain-iot-fabric-deployment.git
+$ cd brain-iot-fabric-deployment
+$ scp -r ansible fabric@control:.
+</code></pre></div></div>
+
+<p>Now login to the <code class="language-plaintext highlighter-rouge">control</code> node and <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html" target="_blank">install</a> ansible, for example:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh user@control
+[control]$ yum install ansible
+</code></pre></div></div>
+
+<h3 id="configure-nodes-in-fabric">Configure nodes in fabric</h3>
+
+<p>Edit the <code class="language-plaintext highlighter-rouge">~/ansible/hosts</code> file to define one <code class="language-plaintext highlighter-rouge">infra</code> node and some <code class="language-plaintext highlighter-rouge">simple</code> nodes. You can also specify the <code class="language-plaintext highlighter-rouge">ansible_user</code> used to ssh into the fabric nodes.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[infra]
+192.168.2.100 ansible_user=fabric-adm
+
+[simple]
+192.168.2.101 ansible_user=fabric-adm
+192.168.2.102 ansible_user=fabric-adm
+192.168.2.103 ansible_user=fabric-adm
+
+</code></pre></div></div>
+
+<p class="note">The <code class="language-plaintext highlighter-rouge">hosts</code> file may be a symbolic-link to one of many fabric configurations.</p>
+
+<h3 id="configure-ssh">Configure ssh</h3>
+
+<p>Create a new ssh key pair called <code class="language-plaintext highlighter-rouge">myfabric</code>:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[control]$ cd ~/ansible
+[control]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/fabric/.ssh/id_rsa): ./myfabric
+Enter passphrase (empty for no passphrase):
+</code></pre></div></div>
+
+<p>Edit <code class="language-plaintext highlighter-rouge">ansible.cfg</code> and change the name of the ssh key:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private_key_file = myfabric
+</code></pre></div></div>
+
+<p>Configure each fabric node to allow ssh access without password, for example:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[control]$ ssh-copy-id -i myfabric.pub fabric@node-1
+ssh-copy-id: INFO: Source of key(s) to be installed: "/home/user/ansible/myfabric_rsa.pub"
+ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+fabric@node-1's password:
+</code></pre></div></div>
+
+<p>Now check that you can login without a password and check whether <strong>sudo</strong> requires a password:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[control]$ ssh -i myfabric fabric@node-1
+[node-1] $ sudo id
+Password:
+</code></pre></div></div>
+
+<p>If <strong>sudo</strong> asked for a password, then configure it not to ask:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[node-1]$ sudo visudo
+Password:
+append this line to end of file
+fabric ALL=(ALL) NOPASSWD:ALL
+</code></pre></div></div>
+
+<p>When you’ve done this for all the fabric nodes, you can use ansible to confirm it:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ansible all --become --args id
+192.168.2.100 | CHANGED | rc=0 &gt;&gt;
+uid=0(root) gid=0(root) groups=0(root)
+
+192.168.2.101 | CHANGED | rc=0 &gt;&gt;
+uid=0(root) gid=0(root) groups=0(root)
+
+192.168.2.102 | CHANGED | rc=0 &gt;&gt;
+uid=0(root) gid=0(root) groups=0(root)
+
+192.168.2.103 | CHANGED | rc=0 &gt;&gt;
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre></div></div>
+
+<p class="note">If the ansible <code class="language-plaintext highlighter-rouge">control</code> node is also a fabric node, it still needs to be configured for ssh access without password.</p>
+
+<h3 id="configure-java">Configure Java</h3>
+
+<p>The fabric requires Java 8.</p>
+
+<p>Although openjdk-8 can be installed via the OS package manager, we’ve found that Oracle Java performs better on Raspberry Pi.</p>
+
+<p>Download <a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Oracle Java 8</a> for Raspberry Pi (<code class="language-plaintext highlighter-rouge">jdk-8uXXX-linux-arm32-vfp-hflt.tar.gz</code>) and other Linux (<code class="language-plaintext highlighter-rouge">jdk-8uXXX-linux-x64.tar.gz</code>)</p>
+
+<p>Then edit <code class="language-plaintext highlighter-rouge">fabric.yml</code> and change <code class="language-plaintext highlighter-rouge">jdk_version</code> to match the version downloaded:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  vars:
+    fabric: brain-iot
+    jdk_version: 231
+    jdk_arm32: ./jdk-8u-linux-arm32-vfp-hflt.tar.gz
+    jdk_x86_64: ./jdk-8u-linux-x64.tar.gz
+    fabric_zip: ./fabric-eval.zip
+    update_fabric: false
+</code></pre></div></div>
+
+<p>also edit <code class="language-plaintext highlighter-rouge">fibre.conf</code> and change the version in <code class="language-plaintext highlighter-rouge">JAVA_HOME</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export JAVA_HOME="/opt/jdk1.8.0_231"
+</code></pre></div></div>
+
+<h3 id="copy-fabric-installation-resources">Copy fabric installation resources</h3>
+
+<p>Copy the following fabric installation resources to <code class="language-plaintext highlighter-rouge">control:~/ansible</code>:</p>
+
+<ul>
+  <li>fabric-eval.zip - fabric installation archive</li>
+  <li>license.ini - fabric license file</li>
+</ul>
+
+<p>They can be obtained from <code class="language-plaintext highlighter-rouge">fabric-n4</code> in the BRAIN-IoT demo network:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[control]$ scp fabric-n4@fabric-n4:ansible/fabric-eval.zip ansible/.
+[control]$ scp fabric-n4@fabric-n4:ansible/license.ini ansible/.
+</code></pre></div></div>
+
+<p class="note">If you don’t have access to the BRAIN-IoT demo network, then you need to contact <a href="mailto:support@paremus.com">Paremus</a> to obtain these files.</p>
+
+<h2 id="manage-fabric">Manage Fabric</h2>
+
+<p>When you have successfully deployed the fabric, you can use it for the <a href="20-distributed.html">Distributed Deployment</a> tutorial.</p>
+
+<h3 id="deploy-the-fabric">Deploy the Fabric</h3>
+
+<p>We’re now ready to deploy the fabric to all nodes specified in the <code class="language-plaintext highlighter-rouge">hosts</code> file:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[control]$ ansible-playbook fabric.yml
+...
+PLAY RECAP **************************************************
+192.168.2.100              : ok=12   changed=1    unreachable=0    failed=0
+192.168.2.101              : ok=12   changed=1    unreachable=0    failed=0
+192.168.2.102              : ok=12   changed=1    unreachable=0    failed=0
+192.168.2.103              : ok=12   changed=1    unreachable=0    failed=0
+</code></pre></div></div>
+
+<p class="note">Initial fabric deployment can take 5-10 minutes depending on how many nodes are in the fabric.</p>
+
+<p>This command only needs to be used to initially deploy the fabric code and Java to each node or when a new node is added.</p>
+
+<p>It also needs to be used to update the config on all nodes, for example if you change the infrastructure node(s) in the <code class="language-plaintext highlighter-rouge">hosts</code> file or the settings in <code class="language-plaintext highlighter-rouge">fibre.conf</code>.</p>
+
+<h2 id="control-brain-iot-fabric">Control Brain-IoT Fabric</h2>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[control]$ ./fabric.sh
+Usage: ./fabric.sh: start | stop | erase | status | bootlog | start1 | reinstall
+</code></pre></div></div>
+
+<ul>
+  <li><strong>start</strong> /  <strong>stop</strong>  - controls the systemd <code class="language-plaintext highlighter-rouge">fabric.service</code> on all fabric nodes.</li>
+  <li><strong>status</strong> - shows Java process status on all fabric nodes.</li>
+  <li><strong>erase</strong> - removes fabric state at next start (this avoids previously deployed systems from restarting)</li>
+</ul>
+
+<p>To perform a full restart of fabric, it is suggested you do the following:</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./fabric.sh stop
+./fabric.sh status
+./fabric.sh erase
+./fabric.sh start
+./fabric.sh status
+</code></pre></div></div>
+
+<h2 id="trouble-shooting">Trouble Shooting</h2>
+
+<p>The following <code class="language-plaintext highlighter-rouge">fabric.sh</code> options are useful for debugging:</p>
+
+<ul>
+  <li><strong>bootlog</strong> - shows the initial fibre startup log on each node. This will show, for example, if Java is missing.</li>
+  <li><strong>start1</strong> IP-address - this will restart the fibre service on the specified node</li>
+  <li><strong>reinstall</strong> - this will force re-install of the fabric archive, for example, if you receive an updated version.</li>
+</ul>
+
+<p>If there is a problem with a specific fibre, there are two useful log files:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/opt/fabric/var/fibre.out</code> contains the console output of the fibre. This usually stops soon after startup when logging is redirected to <code class="language-plaintext highlighter-rouge">fibre.log</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">/opt/fabric/var/1/fibre.log</code> contains verbose Java logging.</li>
+</ul>
+
+<h2 id="end">End</h2>
+
+<p>That completes this tutorial.</p>
+
+
+
+        </article>
+
+      <!--</div>-->
+        <hr />
+        <a class=nav-prev href="30-fabric-cloud.html" >Prev</a>
+        <a class=nav-next href="../tutorial" >Next</a>
+
+    </div>
+</div>
+</div>
+
+        <!--/div-->
+      </div>
+
+      <footer class="site-footer">
+
+<nav class=next-prev>
+        <a href='/tutorial/30-fabric-cloud.html'></a> <a href=''></a>
+</nav>
+
+<script>
+$(function() {
+  return $("h2, h3, h4, h5, h6").each(function(i, el) {
+    var $el, icon, id;
+    $el = $(el);
+    id = $el.attr('id');
+    icon = '<i class="fa fa-link"></i>';
+    if (id) {
+      return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+    }
+  });
+});
+</script>
+
+</footer>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- MathJax -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/javascript">
+    $('body').scrollspy({
+        target: '.bs-docs-sidebar',
+        offset: 150 /* fixed header is about 40px high */
+    });
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Create Fabric in Cloud | BRAIN-IoT</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Create Fabric in Cloud" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Summary" />
+<meta property="og:description" content="Summary" />
+<meta property="og:site_name" content="BRAIN-IoT" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-11T13:10:26+00:00" />
+<script type="application/ld+json">
+{"description":"Summary","@type":"BlogPosting","headline":"Create Fabric in Cloud","dateModified":"2021-02-11T13:10:26+00:00","datePublished":"2021-02-11T13:10:26+00:00","url":"/tutorial/30-fabric-cloud.html","mainEntityOfPage":{"@type":"WebPage","@id":"/tutorial/30-fabric-cloud.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/vbnet.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
+  <!-- Overridden theme -->
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+  <!-- Optional theme -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" /> -->
+  <!-- Bootstrap override -->
+  <link rel="stylesheet" href="/css/bootstrap-override.css" />
+
+  <link rel="alternate" type="application/rss+xml" title="BRAIN-IoT" href="/feed.xml" />
+
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+</head>
+
+
+  <body>
+    
+
+    <div class="container">
+
+      <header class="site-header">
+
+
+<a class="site-title" href="/"><img src="/img/BRAIN-IoT_Logo.png" alt="BRAIN-IoT" height="75" width="154" /></a>
+
+    <nav class="site-nav">
+      <img class="menu-icon" src="/img/gi.svg" />
+      
+      <div class="trigger">
+      	<!--<a class="page-link" href="/">Welcome</a>-->
+        <!-- get current page title and "collection" to figure out which nav
+             link should be "active" -->
+        
+        
+        
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+            
+          
+        
+          
+            
+              
+                
+                  <a class="page-link" href="/tutorial/">Tutorials</a>
+                
+              
+            
+          
+        
+        </div>
+      </div>
+
+    </nav>
+
+</header>
+
+
+      <div class="page-content">
+        <!--div class="wrapper"-->
+          <div class="container-fluid">
+
+<div class="row-fluid">
+    <!--Nav Bar -->
+    <nav class="col-xs-0 col-md-3 bs-docs-sidebar">
+    <ul id="sidebar" class="nav nav-stacked fixed">
+        <!-- Find the h2 group and any h3 subgroups -->
+        
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#summary">Summary</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#prerequsities">Prerequsities</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#cloudformation">CloudFormation</a>
+
+              
+                <ul class="nav nav-stacked">
+                  
+
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#create-stack">Create stack</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#specify-stack-details">Specify stack details</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#review-stack">Review stack</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#create-in-progress">Create in progress</a>
+                    </li>
+                  
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#create-complete">Create complete</a>
+                    </li>
+                  
+
+                </ul>
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#use-fabric">Use Fabric</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#delete-stack">Delete stack</a>
+
+              
+
+            </li>
+          
+
+        
+          
+
+          
+            
+            
+            
+            
+            <li>
+              <a href="#end">End</a>
+
+              
+
+            </li>
+          
+
+        
+    </ul>
+</nav>
+
+
+    <!--Main Content -->
+    <div class="col-xs-12 col-md-9">
+      <!--<div class="post">-->
+
+        <article class="post-content">
+
+
+          <a class=nav-prev href="20-distributed.html" >Prev</a>
+          <a class=nav-next href="35-fabric-onpremise.html" >Next</a>
+          <hr />
+          <br />
+          <h1>Create Fabric in Cloud</h1>
+          <br />
+
+          <p>
+</p>
+
+          <p></p>
+
+          <h2 id="summary">Summary</h2>
+
+<p>This tutorial shows how to create a Fabric from scratch using Amazon EC2.</p>
+
+<p>The fabric created can then be used for the <a href="20-distributed.html">Distributed Deployment</a> tutorial.</p>
+
+<h2 id="prerequsities">Prerequsities</h2>
+
+<p>You need an Amazon AWS account with permission to run CloudFormation and provision EC2 instances.</p>
+
+<p class="note">You can not use the AWS free tier because you need to create multiple EC2 instances.</p>
+
+<h2 id="cloudformation">CloudFormation</h2>
+
+<p>Log in to your AWS account and select the region in which you want to create the fabric.</p>
+
+<p class="warning">You will be billed for the AWS resources used if you create a stack from this template.</p>
+
+<p class="note">The approximate cost for a fabric consisting of 1 infrastructure and 3 simple <code class="language-plaintext highlighter-rouge">t3a.small</code> instances is $0.10/hour.</p>
+
+<h3 id="create-stack">Create stack</h3>
+
+<p>Navigate to the <strong>CloudFormation</strong> service and click <code class="language-plaintext highlighter-rouge">Create Stack</code>.</p>
+
+<p><img src="img/aws-cf-1.png" alt="CloudFormation#1" height="700px" /></p>
+
+<p>Under <strong>Specify template</strong> enter the following for Amazon S3 URL which is an example template:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://s3-eu-west-1.amazonaws.com/paremus-packager/fabric2.template
+</code></pre></div></div>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Next</code></p>
+
+<h3 id="specify-stack-details">Specify stack details</h3>
+
+<p><img src="img/aws-cf-2.png" alt="CloudFormation#2" height="700px" /></p>
+
+<p>Enter a unique stack name</p>
+
+<p class="note">The stack name is also used as the fabric name, and a component of the DNS name for your fabric, so don’t just use ‘test’ or it will conflict with other fabrics using the same name.</p>
+
+<p>Enter your network configuration details by selecting the Vpcid and Subnets.</p>
+
+<p>Choose the number of simple nodes in the fabric.</p>
+
+<p class="note">The fabric is created with 1 infrastructure node and 1-20 simple nodes.</p>
+
+<p>Select the EC2 instance type.</p>
+
+<p class="note">The default instance type <code class="language-plaintext highlighter-rouge">t3a.small</code> has 2Gb memory and is sufficient for a demo fabric.</p>
+
+<p>Finally select a KeyPair to allow ssh access to the instances.</p>
+
+<p class="note">If you don’t have any KeyPairs in this region, you can create one by navigating to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-keypair.html" target="_blank"><code class="language-plaintext highlighter-rouge">EC2/Key pairs</code></a></p>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Next</code></p>
+
+<p><img src="img/aws-cf-3.png" alt="CloudFormation#3" height="700px" /></p>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Next</code></p>
+
+<h3 id="review-stack">Review stack</h3>
+
+<p><img src="img/aws-cf-4.png" alt="CloudFormation#4" height="700px" /></p>
+
+<p>scroll to the end:</p>
+
+<p><img src="img/aws-cf-5.png" alt="CloudFormation#5" height="700px" /></p>
+
+<p>Click the checkbox to acknowledge that CloudFormation can create IAM resources.</p>
+
+<p class="note">The fabric template creates an IAM role with permission for <code class="language-plaintext highlighter-rouge">ec2.DescribeInstances</code> which is needed so fibres can determine the IP address of the infrastructure node.</p>
+
+<p>Click <code class="language-plaintext highlighter-rouge">CreateStack</code>.</p>
+
+<h3 id="create-in-progress">Create in progress</h3>
+
+<p class="warning">Stack creation will take about 5 minutes</p>
+
+<p><img src="img/aws-cf-6.png" alt="CloudFormation#5" height="700px" /></p>
+
+<p>You can refresh to see some progress events:</p>
+
+<p><img src="img/aws-cf-7.png" alt="CloudFormation#5" height="700px" /></p>
+
+<p>If you’re bored waiting, after about 2m30s you should see the instances in the EC2 console:</p>
+
+<p><img src="img/aws-cf-8.png" alt="CloudFormation#5" height="700px" /></p>
+
+<h3 id="create-complete">Create complete</h3>
+
+<p><img src="img/aws-cf-9.png" alt="CloudFormation#5" height="700px" /></p>
+
+<p>When the create is complete, click on the <code class="language-plaintext highlighter-rouge">Outputs</code> tab and you’ll see the URLs for the fabric:</p>
+
+<p><img src="img/aws-cf-10.png" alt="CloudFormation#5" height="700px" /></p>
+
+<p>Click on the DNS link and you should see the secure fabric login page:</p>
+
+<p><img src="img/aws-cf-11.png" alt="CloudFormation#5" height="700px" /></p>
+
+<p class="note">This relies on a DNS update to add your fabric IP address as <em>your-fabric-name</em>.servicefabric.paremus.com. If the DNS update has not yet propagated to you, use the Fabric IP address instead.</p>
+
+<p class="warning">Not using the DNS address will cause a privacy error in the browser, which you need to accept.</p>
+
+<p>Login to the fabric with Username: <code class="language-plaintext highlighter-rouge">AdminUser</code> and password: <code class="language-plaintext highlighter-rouge">AdminUser</code> and check Show: <code class="language-plaintext highlighter-rouge">Fibre Names</code> and you should see all the fibres in your fabric:</p>
+
+<p><img src="img/aws-cf-12.png" alt="CloudFormation#5" height="700px" /></p>
+
+<h2 id="use-fabric">Use Fabric</h2>
+
+<p>You can now use this fabric for the <a href="20-distributed.html">Distributed Deployment</a> tutorial.</p>
+
+<p>The infrastructure node contains <strong>nginx</strong>, which can be used as the webserver for that tutorial</p>
+
+<div class="language-plaintext shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh centos@derek.servicefabric.paremus.com
+[centos@ip-172-31-42-116 ~]$ sudo unzip -d /usr/share/nginx/html /tmp/brain-iot-repos-0.0.1-SNAPSHOT.zip
+</code></pre></div></div>
+
+<h2 id="delete-stack">Delete stack</h2>
+
+<p class="warning">When you’ve finished using the fabric, you should delete the stack to avoid ongoing AWS costs.</p>
+
+<p>Navigate to CloudFormation, select the stack for your fabric and click <code class="language-plaintext highlighter-rouge">Delete</code>:</p>
+
+<p><img src="img/aws-cf-14.png" alt="CloudFormation#5" height="700px" /></p>
+
+<h2 id="end">End</h2>
+
+<p>That completes this tutorial.</p>
+
+
+        </article>
+
+      <!--</div>-->
+        <hr />
+        <a class=nav-prev href="20-distributed.html" >Prev</a>
+        <a class=nav-next href="35-fabric-onpremise.html" >Next</a>
+
+    </div>
+</div>
+</div>
+
+        <!--/div-->
+      </div>
+
+      <footer class="site-footer">
+
+<nav class=next-prev>
+        <a href='/tutorial/20-distributed.html'></a> <a href='/tutorial/35-fabric-onpremise.html'></a>
+</nav>
+
+<script>
+$(function() {
+  return $("h2, h3, h4, h5, h6").each(function(i, el) {
+    var $el, icon, id;
+    $el = $(el);
+    id = $el.attr('id');
+    icon = '<i class="fa fa-link"></i>';
+    if (id) {
+      return $el.prepend($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+    }
+  });
+});
+</script>
+
+</footer>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- MathJax -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/javascript">
+    $('body').scrollspy({
+        target: '.bs-docs-sidebar',
+        offset: 150 /* fixed header is about 40px high */
+    });
+    </script>
+
+  </body>
+
+</html>
